@@ -5,3 +5,5 @@ extends Node
 
 signal game_over()
 signal win()
+
+signal update_score(score)

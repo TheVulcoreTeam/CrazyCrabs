@@ -40,8 +40,15 @@ func _physics_process(delta):
 func new_random_angle():
 	angle = randf() * 2 * PI
 	angle_vector = Vector2(0,1).rotated(angle)
-#	$Sprite.rotate(angle)
+	$Sprite.rotation = angle
 
 func capture():
 	is_capture = true
 	$Collision.disabled = true
+	$CookingTime.start()
+
+func _on_CookingTime_timeout():
+	Main.store_score += 1
+	Events.emit_signal("update_score", Main.store_score)
+	queue_free()
+	
