@@ -44,9 +44,6 @@ func _draw():
 	draw_circle(angle_vector*(debug_radius+5), 5.5, debug_color_3)
 
 func _physics_process(delta):
-	if not can_move:
-		return
-	
 	rect_size = 16
 	crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
 	
@@ -57,7 +54,6 @@ func _physics_process(delta):
 		$Sprite.rotation_degrees += 10
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
-		EffectManager.screen_shake(1, 1)
 	elif Input.is_action_pressed("click_izquierdo") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
 		# apply Left rotation
 		angle = $Sprite.rotation - (PI/2.0) - PI*0.1
@@ -65,7 +61,6 @@ func _physics_process(delta):
 		$Sprite.rotation_degrees -= 10
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
-		EffectManager.screen_shake(1, 1)
 	elif is_capture:
 		capture_t += delta*2
 		self.position = capture_position.linear_interpolate(Vector2(194, 104), capture_t)
