@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MainScreens/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=2]
@@ -7,16 +7,35 @@
 [ext_resource path="res://Game/Actors/Crab/cangrejo_4.png" type="Texture" id=5]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_1.png" type="Texture" id=6]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_2.png" type="Texture" id=7]
+[ext_resource path="res://Game/Stage/Background/background_6.png" type="Texture" id=8]
+[ext_resource path="res://Game/Stage/Background/background_3.png" type="Texture" id=9]
+[ext_resource path="res://Game/Stage/Background/background_2.png" type="Texture" id=10]
+[ext_resource path="res://Game/Stage/Background/background_1.png" type="Texture" id=11]
+[ext_resource path="res://Game/Stage/Background/background_5.png" type="Texture" id=12]
+[ext_resource path="res://Game/Stage/Background/background_4.png" type="Texture" id=13]
+[ext_resource path="res://MainScreens/Credits/E Varas.png" type="Texture" id=14]
+[ext_resource path="res://MainScreens/Credits/M Muñoz.png" type="Texture" id=15]
+[ext_resource path="res://MainScreens/Credits/M Ellisca.png" type="Texture" id=16]
+[ext_resource path="res://MainScreens/Credits/G Moena.png" type="Texture" id=17]
+[ext_resource path="res://MainScreens/Credits/M Negrier.png" type="Texture" id=18]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
 size = 12
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 9
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -24,25 +43,27 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=5]
+size = 11
+outline_color = Color( 0.960784, 0.94902, 0.94902, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 389.0
-margin_bottom = 213.0
-color = Color( 1, 0.717647, 0.109804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 192.034, 104.066 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
 
 [node name="Programmers" type="Label" parent="."]
 margin_left = 7.47389
-margin_top = 12.4561
+margin_top = 10.4561
 margin_right = 167.474
-margin_bottom = 28.4561
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 26.4561
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Programmers"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,10 +71,11 @@ __meta__ = {
 
 [node name="Art" type="Label" parent="."]
 margin_left = 6.76677
-margin_top = 124.87
+margin_top = 129.87
 margin_right = 186.767
-margin_bottom = 140.87
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 145.87
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Arts and Sounds"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,10 +83,11 @@ __meta__ = {
 
 [node name="Vassink" type="Label" parent="."]
 margin_left = 41.511
-margin_top = 146.392
+margin_top = 151.392
 margin_right = 305.511
-margin_bottom = 155.392
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 160.392
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Eduardo (Vassink) Varas "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,10 +95,11 @@ __meta__ = {
 
 [node name="Strell" type="Label" parent="."]
 margin_left = 42.1784
-margin_top = 100.059
+margin_top = 111.059
 margin_right = 306.178
-margin_bottom = 109.059
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 120.059
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Marcelo (Strell) Negrier "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,10 +107,11 @@ __meta__ = {
 
 [node name="FuryCode" type="Label" parent="."]
 margin_left = 42.0
-margin_top = 39.0
+margin_top = 35.0
 margin_right = 306.0
-margin_bottom = 48.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Matias (FuryCode) Muñoz"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,10 +119,11 @@ __meta__ = {
 
 [node name="MKZ" type="Label" parent="."]
 margin_left = 42.1784
-margin_top = 59.0594
+margin_top = 60.0594
 margin_right = 306.178
-margin_bottom = 68.0594
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 69.0594
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Marcus (MKZ) Ellisca "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,54 +131,76 @@ __meta__ = {
 
 [node name="Gino" type="Label" parent="."]
 margin_left = 42.1784
-margin_top = 79.0594
+margin_top = 85.0594
 margin_right = 306.178
-margin_bottom = 88.0594
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 94.0594
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Gino Moena"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 240.837, 185.507 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 3 )
+[node name="crab1" type="AnimatedSprite" parent="."]
+position = Vector2( 346.854, 143.635 )
+frames = SubResource( 4 )
 playing = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 91.8373, 185.507 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 3 )
+[node name="crab2" type="AnimatedSprite" parent="."]
+position = Vector2( 298.526, 69.6902 )
+frames = SubResource( 4 )
 frame = 3
 playing = true
 
-[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
-position = Vector2( 141.837, 185.507 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 3 )
+[node name="crab3" type="AnimatedSprite" parent="."]
+position = Vector2( 348.516, 92.8934 )
+frames = SubResource( 4 )
 frame = 2
 playing = true
 
-[node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
-position = Vector2( 192.837, 186.174 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 3 )
+[node name="crab4" type="AnimatedSprite" parent="."]
+position = Vector2( 298.854, 115.793 )
+frames = SubResource( 4 )
 frame = 2
 playing = true
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 323.703, 185.347 )
+[node name="logo" type="Sprite" parent="."]
+position = Vector2( 329.987, 14.7661 )
 scale = Vector2( 0.115539, 0.115539 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 11.7726
-margin_top = 176.588
-margin_right = 53.7726
-margin_bottom = 196.588
+margin_left = 8.1434
+margin_top = 183.126
+margin_right = 64.1434
+margin_bottom = 208.126
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
+custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Back"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="vassink" type="Sprite" parent="."]
+position = Vector2( 24.9734, 155.029 )
+texture = ExtResource( 14 )
+
+[node name="strell" type="Sprite" parent="."]
+position = Vector2( 24.9734, 115.029 )
+texture = ExtResource( 18 )
+
+[node name="mkz" type="Sprite" parent="."]
+position = Vector2( 24.9734, 64.0293 )
+texture = ExtResource( 16 )
+
+[node name="gino" type="Sprite" parent="."]
+position = Vector2( 24.9734, 89.0293 )
+texture = ExtResource( 17 )
+
+[node name="fury" type="Sprite" parent="."]
+position = Vector2( 24.9734, 39.0293 )
+texture = ExtResource( 15 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
