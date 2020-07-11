@@ -14,6 +14,8 @@ script = ExtResource( 1 )
 [node name="Pot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 192, 104 )
 
+[node name="Crabs" type="Node2D" parent="."]
+
 [node name="Score" type="Label" parent="."]
 margin_right = 384.0
 margin_bottom = 16.0
@@ -31,7 +33,7 @@ margin_top = 17.4614
 margin_right = 384.0
 margin_bottom = 33.4614
 custom_fonts/font = SubResource( 1 )
-text = "Time: 25"
+text = "Time: 60"
 align = 2
 valign = 1
 __meta__ = {
@@ -41,4 +43,14 @@ __meta__ = {
 
 [node name="Countdown" type="Timer" parent="Time"]
 autostart = true
+
+[node name="SpawnerTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="DifficultTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 [connection signal="timeout" from="Time/Countdown" to="." method="_on_Countdown_timeout"]
+[connection signal="timeout" from="SpawnerTimer" to="." method="_on_SpawnerTimer_timeout"]
+[connection signal="timeout" from="DifficultTimer" to="." method="_on_DifficultTimer_timeout"]

@@ -2,7 +2,8 @@ extends Node2D
 
 var crab_source = preload("res://Game/Actors/Crab/Crab.tscn")
 
-export var crab_count := 10
+export var max_crab_count := 50
+export var crab_count := 3
 
 func _ready():
 	randomize()
@@ -18,11 +19,11 @@ func _process(delta):
 func spawn_crab():
 	
 	var crab = crab_source.instance()
-	add_child(crab)
+	$Crabs.add_child(crab)
 	
 	var rand_position := MapManager.pot_center
 	
-	while(MapManager.pot_center.distance_squared_to(rand_position) < MapManager.pot_radius*MapManager.pot_radius):
+	while(MapManager.negative_spawn_rect_bounds.has_point(rand_position)):
 		
 		rand_position.x = (MapManager.rect_bounds.position.x) + randi() % (MapManager.rect_bounds.size.x as int)
 		rand_position.y = (MapManager.rect_bounds.position.y) + randi() % (MapManager.rect_bounds.size.y as int)
@@ -32,12 +33,13 @@ func spawn_crab():
 	
 func check_crab_bounds():
 	
-	for child in get_children():
+	for child in $Crabs.get_children():
 		if not (child is GCrab):
 			continue
 		if not MapManager.rect_bounds.has_point(child.position):
 			child.queue_free()
 			spawn_crab()
+			
 
 func _on_update_score(score):
 	$Score.text = "Score: " + str(score)
@@ -48,3 +50,21 @@ func _on_Countdown_timeout():
 	
 	if Main.store_time <= 0:
 		get_tree().change_scene("res://MainScreens/EndLevel.tscn")
+
+
+func _on_SpawnerTimer_timeout():
+	
+	if ($Crabs.get_child_count() < max_crab_count):
+		for i in range(3):
+			spawn_crab()
+			#print("SPAWNEO NUEVO")
+	
+	pass # Replace with function body.
+
+
+func _on_DifficultTimer_timeout():
+	crab_count += 3
+	if crab_count > max_crab_count:
+		crab_count = max_crab_count
+	print("[CRAB COUNT] : ", crab_count)
+	pass # Replace with function body.
