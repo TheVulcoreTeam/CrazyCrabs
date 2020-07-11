@@ -37,11 +37,18 @@ func _physics_process(delta):
 	var rect_size = 16
 	var crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
 	
-	if Input.is_action_pressed("click") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
-		# apply rotation
+	if Input.is_action_pressed("click_derecho") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
+		# apply right rotation
 		angle = $Sprite.rotation + (PI/2.0) + PI*0.1
 		angle_vector = Vector2(0, 1).rotated(angle)
 		$Sprite.rotation_degrees += 10
+		$Sprite/Arrow.visible = true
+		$Sprite.scale = Vector2(1.2, 1.2)
+	elif Input.is_action_pressed("click_izquierdo") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
+		# apply Left rotation
+		angle = $Sprite.rotation - (PI/2.0) - PI*0.1
+		angle_vector = Vector2(0, -1).rotated(angle)
+		$Sprite.rotation_degrees -= 10
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
 	else:
