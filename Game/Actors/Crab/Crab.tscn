@@ -69,7 +69,7 @@ script = ExtResource( 2 )
 rotation = 12.5664
 frames = SubResource( 1 )
 animation = "Move"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Collision" parent="." index="1"]

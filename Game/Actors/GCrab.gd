@@ -67,6 +67,8 @@ func _physics_process(delta):
 		$Sprite.scale = Vector2(1.2, 1.2)
 	elif is_capture:
 		capture_t += delta*2
+		if capture_t > 1: capture_t = 1
+		
 		self.position = capture_position.linear_interpolate(Vector2(194, 104), capture_t)
 	else:
 		var collision := move_and_collide(angle_vector *velocity)
