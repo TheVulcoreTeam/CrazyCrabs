@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Actors/GCrab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Actors/Crab/Crab.gd" type="Script" id=2]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_3.png" type="Texture" id=3]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_2.png" type="Texture" id=4]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_4.png" type="Texture" id=5]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_1.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Move",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.2632
 
 [node name="Crab" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )
+animation = "Move"
+frame = 3
+playing = true
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource( 2 )
