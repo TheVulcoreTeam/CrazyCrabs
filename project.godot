@@ -18,6 +18,15 @@ _global_script_class_icons={
 config/name="GMTK2020"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=384
+window/size/height=208
+window/size/test_width=768
+window/size/test_height=416
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

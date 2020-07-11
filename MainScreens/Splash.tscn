@@ -1,0 +1,69 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://MainScreens/Splash.gd" type="Script" id=1]
+[ext_resource path="res://MainScreens/Splash/19.png" type="Texture" id=2]
+[ext_resource path="res://MainScreens/Splash/05.png" type="Texture" id=3]
+[ext_resource path="res://MainScreens/Splash/14.png" type="Texture" id=4]
+[ext_resource path="res://MainScreens/Splash/02.png" type="Texture" id=5]
+[ext_resource path="res://MainScreens/Splash/01.png" type="Texture" id=6]
+[ext_resource path="res://MainScreens/Splash/10.png" type="Texture" id=7]
+[ext_resource path="res://MainScreens/Splash/18.png" type="Texture" id=8]
+[ext_resource path="res://MainScreens/Splash/13.png" type="Texture" id=9]
+[ext_resource path="res://MainScreens/Splash/16.png" type="Texture" id=10]
+[ext_resource path="res://MainScreens/Splash/17.png" type="Texture" id=11]
+[ext_resource path="res://MainScreens/Splash/20.png" type="Texture" id=12]
+[ext_resource path="res://MainScreens/Splash/04.png" type="Texture" id=13]
+[ext_resource path="res://MainScreens/Splash/11.png" type="Texture" id=14]
+[ext_resource path="res://MainScreens/Splash/06.png" type="Texture" id=15]
+[ext_resource path="res://MainScreens/Splash/07.png" type="Texture" id=16]
+[ext_resource path="res://MainScreens/Splash/15.png" type="Texture" id=17]
+[ext_resource path="res://MainScreens/Splash/09.png" type="Texture" id=18]
+[ext_resource path="res://MainScreens/Splash/12.png" type="Texture" id=19]
+[ext_resource path="res://MainScreens/Splash/08.png" type="Texture" id=20]
+[ext_resource path="res://MainScreens/Splash/03.png" type="Texture" id=21]
+[ext_resource path="res://MainScreens/Splash/21.png" type="Texture" id=22]
+[ext_resource path="res://MainScreens/Splash/22.png" type="Texture" id=23]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 21 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "Splash",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0156863, 0.0156863, 0.0156863, 0 ), Color( 0.0156863, 0.0156863, 0.0156863, 1 ) ]
+}
+
+[node name="Splash" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Splash" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Splash"
+centered = false
+
+[node name="Anim" type="AnimationPlayer" parent="Splash"]
+anims/Hide = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 208.0
+color = Color( 0.0156863, 0.0156863, 0.0156863, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="Splash" to="." method="_on_Splash_animation_finished"]
+[connection signal="animation_finished" from="Splash/Anim" to="." method="_on_Anim_animation_finished"]
