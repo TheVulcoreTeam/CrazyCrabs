@@ -5,6 +5,7 @@ const DEBUG_ACTORS := false
 const BGM := true
 
 var store_score := 0
+var store_crab_cooking_amount := 0
 var store_time := 25
 
 enum GameResult {
@@ -19,3 +20,4 @@ func _ready():
 func reset_store():
 	store_score = 0
 	store_time = 25
+	store_crab_cooking_amount = 0
