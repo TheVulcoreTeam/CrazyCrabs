@@ -7,3 +7,5 @@ signal game_over()
 signal win()
 
 signal update_score(score)
+
+signal escape_crab()

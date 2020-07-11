@@ -17,7 +17,6 @@ offset = Vector2( -1.09139e-11, -20.0683 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
-[node name="CookingTime" type="Timer" parent="."]
+[node name="ExitTime" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-[connection signal="timeout" from="CookingTime" to="." method="_on_CookingTime_timeout"]
