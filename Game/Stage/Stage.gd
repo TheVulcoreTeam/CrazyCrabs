@@ -58,6 +58,7 @@ func _on_Countdown_timeout():
 	$Time.text = "Time: " + str(Main.store_time)
 	
 	if Main.store_time <= 0:
+		Main.game_result = Main.GameResult.FINISH
 		get_tree().change_scene("res://MainScreens/EndLevel.tscn")
 
 
