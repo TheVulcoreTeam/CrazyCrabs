@@ -124,23 +124,24 @@ __meta__ = {
 [node name="crabmenu" type="AnimatedSprite" parent="."]
 position = Vector2( 325.091, 139.783 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="crabmenu2" type="AnimatedSprite" parent="."]
 position = Vector2( 268.459, 94.0051 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="crabmenu3" type="AnimatedSprite" parent="."]
 position = Vector2( 242.254, 149.223 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="crabmenu4" type="AnimatedSprite" parent="."]
 position = Vector2( 200.471, 106.754 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="logotemp" type="Label" parent="."]
