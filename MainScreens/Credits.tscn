@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://MainScreens/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=2]
@@ -35,20 +35,24 @@ font_data = ExtResource( 2 )
 size = 9
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="DynamicFont" id=4]
+size = 7
+font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 14
 outline_color = Color( 0.960784, 0.94902, 0.94902, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 8
 font_data = ExtResource( 2 )
 
@@ -62,10 +66,10 @@ frame = 5
 playing = true
 
 [node name="Programmers" type="Label" parent="."]
-margin_left = 7.47389
-margin_top = 10.4561
-margin_right = 167.474
-margin_bottom = 26.4561
+margin_left = 7.97389
+margin_top = 4.9561
+margin_right = 167.974
+margin_bottom = 20.9561
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Programmers"
@@ -74,10 +78,10 @@ __meta__ = {
 }
 
 [node name="Art" type="Label" parent="."]
-margin_left = 6.76677
-margin_top = 129.87
-margin_right = 186.767
-margin_bottom = 145.87
+margin_left = 9.28946
+margin_top = 121.041
+margin_right = 189.29
+margin_bottom = 137.041
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Arts and Sounds"
@@ -86,10 +90,10 @@ __meta__ = {
 }
 
 [node name="Vassink" type="Label" parent="."]
-margin_left = 41.511
-margin_top = 151.392
-margin_right = 305.511
-margin_bottom = 160.392
+margin_left = 28.0567
+margin_top = 140.881
+margin_right = 292.057
+margin_bottom = 149.881
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -98,11 +102,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="music" type="Label" parent="."]
+margin_left = 147.91
+margin_top = 197.194
+margin_right = 378.91
+margin_bottom = 206.194
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Music Attribution: Alex McCulloch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Strell" type="Label" parent="."]
-margin_left = 42.1784
-margin_top = 111.059
-margin_right = 306.178
-margin_bottom = 120.059
+margin_left = 26.9933
+margin_top = 101.533
+margin_right = 251.993
+margin_bottom = 110.533
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -112,10 +129,10 @@ __meta__ = {
 }
 
 [node name="FuryCode" type="Label" parent="."]
-margin_left = 42.0
-margin_top = 35.0
-margin_right = 306.0
-margin_bottom = 44.0
+margin_left = 28.0421
+margin_top = 29.2401
+margin_right = 292.042
+margin_bottom = 38.2401
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -125,10 +142,10 @@ __meta__ = {
 }
 
 [node name="MKZ" type="Label" parent="."]
-margin_left = 42.1784
-margin_top = 60.0594
-margin_right = 306.178
-margin_bottom = 69.0594
+margin_left = 27.7297
+margin_top = 54.2415
+margin_right = 291.729
+margin_bottom = 63.2415
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.952941, 0.960784, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -138,10 +155,10 @@ __meta__ = {
 }
 
 [node name="Gino" type="Label" parent="."]
-margin_left = 42.1784
-margin_top = 85.0594
-margin_right = 306.178
-margin_bottom = 94.0594
+margin_left = 27.3445
+margin_top = 78.8673
+margin_right = 117.344
+margin_bottom = 87.8673
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -151,36 +168,36 @@ __meta__ = {
 }
 
 [node name="crab1" type="AnimatedSprite" parent="."]
-position = Vector2( 362.252, 139.195 )
-frames = SubResource( 4 )
+position = Vector2( 361.722, 137.606 )
+frames = SubResource( 5 )
 frame = 2
 playing = true
 
 [node name="crab2" type="AnimatedSprite" parent="."]
 position = Vector2( 288.391, 55.106 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 frame = 1
 playing = true
 
 [node name="crab5" type="AnimatedSprite" parent="."]
-position = Vector2( 325.318, 53.565 )
-frames = SubResource( 4 )
+position = Vector2( 326.907, 56.2137 )
+frames = SubResource( 5 )
 frame = 1
 playing = true
 
 [node name="crab3" type="AnimatedSprite" parent="."]
-position = Vector2( 361.848, 56.2531 )
-frames = SubResource( 4 )
+position = Vector2( 363.967, 56.2531 )
+frames = SubResource( 5 )
 playing = true
 
 [node name="crab4" type="AnimatedSprite" parent="."]
-position = Vector2( 284.67, 137.966 )
-frames = SubResource( 4 )
+position = Vector2( 281.67, 137.466 )
+frames = SubResource( 5 )
 playing = true
 
 [node name="crab6" type="AnimatedSprite" parent="."]
-position = Vector2( 325.17, 138.966 )
-frames = SubResource( 4 )
+position = Vector2( 324.64, 137.907 )
+frames = SubResource( 5 )
 frame = 3
 playing = true
 
@@ -195,7 +212,7 @@ margin_top = 184.91
 margin_right = 74.3596
 margin_bottom = 209.91
 size_flags_stretch_ratio = 0.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
 custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Back"
@@ -205,23 +222,23 @@ __meta__ = {
 }
 
 [node name="vassink" type="Sprite" parent="."]
-position = Vector2( 24.9734, 155.029 )
+position = Vector2( 15.3031, 145.359 )
 texture = ExtResource( 14 )
 
 [node name="strell" type="Sprite" parent="."]
-position = Vector2( 24.9734, 115.029 )
+position = Vector2( 14.3876, 105.721 )
 texture = ExtResource( 18 )
 
 [node name="mkz" type="Sprite" parent="."]
-position = Vector2( 24.9734, 64.0293 )
+position = Vector2( 14.2016, 56.6487 )
 texture = ExtResource( 16 )
 
 [node name="gino" type="Sprite" parent="."]
-position = Vector2( 24.9734, 89.0293 )
+position = Vector2( 14.2326, 81.4258 )
 texture = ExtResource( 17 )
 
 [node name="fury" type="Sprite" parent="."]
-position = Vector2( 24.9734, 39.0293 )
+position = Vector2( 13.394, 32.0094 )
 texture = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="."]
@@ -229,7 +246,7 @@ margin_left = 262.161
 margin_top = 76.1432
 margin_right = 382.161
 margin_bottom = 117.143
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "no crabs was
 damaged during 
