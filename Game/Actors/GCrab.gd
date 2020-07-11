@@ -9,6 +9,7 @@ var angle_vector := Vector2(0,0)
 export var debug_radius := 10
 export var debug_color_1 := Color(0.3,0.1,0.6) 
 export var debug_color_2 := Color(0.6,0.1,0.3) 
+export var debug_color_3 := Color(0.6,0.3,0.3) 
 ####
 
 func _ready():
@@ -23,6 +24,7 @@ func _process(delta):
 func _draw():
 	draw_circle(Vector2(0,0), debug_radius, debug_color_1)
 	draw_line(Vector2(0,0), angle_vector*(debug_radius+5), debug_color_2, 3)
+	draw_circle(angle_vector*(debug_radius+5), 5.5, debug_color_3)
 ####
 
 func _physics_process(delta):
@@ -35,4 +37,4 @@ func _physics_process(delta):
 func new_random_angle():
 	angle = randf() * 2 * PI
 	angle_vector = Vector2(0,1).rotated(angle)
-	$Sprite.rotate(angle)
+#	$Sprite.rotate(angle)
