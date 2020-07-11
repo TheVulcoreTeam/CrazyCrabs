@@ -29,6 +29,15 @@ func spawn_crab():
 		rand_position.y = (MapManager.rect_bounds.position.y) + randi() % (MapManager.rect_bounds.size.y as int)
 	
 	crab.position = rand_position
+	
+	var dir_point := Vector2()
+	dir_point.x = (MapManager.negative_spawn_rect_bounds.position.x) + randi() % (MapManager.negative_spawn_rect_bounds.size.x as int)
+	dir_point.y = (MapManager.negative_spawn_rect_bounds.position.y) + randi() % (MapManager.negative_spawn_rect_bounds.size.y as int)
+	
+	crab.angle = crab.position.angle_to_point(dir_point) + (PI/2.0)
+	crab.angle_vector = Vector2(0,1).rotated(crab.angle)
+	crab.get_node("Sprite").rotation = crab.angle - (PI/2.0)
+	
 	#print(MapManager.pot_center.distance_to(rand_position))
 	
 func check_crab_bounds():
