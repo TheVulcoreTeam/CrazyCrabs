@@ -29,6 +29,8 @@ func _on_Save_pressed():
 	var headers = ["Content-Type: application/json"]
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))
 	
+	$ScoreTitle.text = "Score: " + str(Main.store_score)
+	
 	Main.reset_store()
 	Main.game_result = Main.GameResult.NONE
 
