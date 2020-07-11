@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/POT_OFF.ogg-7f42424df4857b057e857c49a1262d2c.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/POT_OFF.ogg"
+dest_files=[ "res://.import/POT_OFF.ogg-7f42424df4857b057e857c49a1262d2c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

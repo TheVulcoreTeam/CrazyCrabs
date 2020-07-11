@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/COOKED_CRAB.ogg-cb170f8b1d9877ceca0626c8d3ec3069.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/COOKED_CRAB.ogg"
+dest_files=[ "res://.import/COOKED_CRAB.ogg-cb170f8b1d9877ceca0626c8d3ec3069.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

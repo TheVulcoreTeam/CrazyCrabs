@@ -11,11 +11,13 @@ func _on_TouchArea_pressed():
 		if cover_off:
 			$Cover/Anim.play("CoverOn")
 			$Collision.disabled = true
-			$CookingTime.start()
+			$CookingTime.stop()
+			SoundManager.play_sound("POT_OFF")
 		else:
 			$Cover/Anim.play_backwards("CoverOn")
 			$Collision.disabled = false
-			$CookingTime.stop()
+			$CookingTime.start()
+			SoundManager.play_sound("POT_ON")
 
 func _on_CaptureArea_body_entered(body):
 	if cover_off and body is GCrab:
@@ -30,4 +32,4 @@ func _on_CookingTime_timeout():
 	Main.store_crab_cooking_amount = 0
 	
 	Events.emit_signal("update_score", Main.store_score)
-	SoundManager.play_sound("ADD_SCORE")
+	SoundManager.play_sound("COOKED_CRAB")
