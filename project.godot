@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "GCrab",
+"class": "Crab",
+"language": "GDScript",
+"path": "res://Game/Actors/Crab/Crab.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "GCrab",
 "language": "GDScript",
 "path": "res://Game/Actors/GCrab.gd"
 } ]
 _global_script_class_icons={
+"Crab": "",
 "GCrab": ""
 }
 
