@@ -21,7 +21,7 @@ func _on_Save_pressed():
 	text_field.readonly = true
 	var body = {
 		'nickname': text_field.text,
-		'score': 99,
+		'score': Main.store_score,
 		'vulcore_key': 'a2ed12be302bcacef65a424113c070bf'
 	}
 	var headers = ["Content-Type: application/json"]

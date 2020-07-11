@@ -11,7 +11,7 @@ func _ready():
 	for n in range(crab_count):
 		spawn_crab()
 	
-	pass # Replace with function body.
+	Events.connect("update_score", self, "_on_update_score")
 
 func _process(delta):
 	check_crab_bounds()
@@ -32,3 +32,7 @@ func check_crab_bounds():
 		if not rect_bound.has_point(child.position):
 			child.queue_free()
 			spawn_crab()
+
+
+func _on_update_score(score):
+	$Score.text = "Score: " + str(score)

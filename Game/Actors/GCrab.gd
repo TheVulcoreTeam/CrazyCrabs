@@ -51,13 +51,27 @@ func _physics_process(delta):
 func new_random_angle():
 	angle = randf() * 2 * PI
 	angle_vector = Vector2(0,1).rotated(angle)
+<<<<<<< HEAD
 	$Sprite.rotation = angle - (PI/2.0)
 	$Sprite.flip_v = !$Sprite.flip_v
+=======
+	$Sprite.rotation = angle
+>>>>>>> 32293c527c87da70978513ce9e8cf317cfb30667
 
 func capture():
 	is_capture = true
 	$Collision.disabled = true
+<<<<<<< HEAD
 	
 func _input(event):
 	mouse_position = event.position
 
+=======
+	$CookingTime.start()
+
+func _on_CookingTime_timeout():
+	Main.store_score += 1
+	Events.emit_signal("update_score", Main.store_score)
+	queue_free()
+	
+>>>>>>> 32293c527c87da70978513ce9e8cf317cfb30667
