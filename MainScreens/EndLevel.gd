@@ -15,6 +15,8 @@ func _ready():
 	http_results.connect('request_completed', self, '_on_ranking_obtained')
 	http_results.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/get_scores', headers, false, HTTPClient.METHOD_POST, JSON.print({}))
 	
+	if Main.game_result == Main.GameResult.NONE:
+		$Save.visible = false
 	
 func _on_Save_pressed():
 	save.disabled = true
