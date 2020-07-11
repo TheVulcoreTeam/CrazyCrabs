@@ -3,7 +3,6 @@ extends Node2D
 var crab_source = preload("res://Game/Actors/Crab/Crab.tscn")
 
 export var crab_count := 10
-export var rect_bound = Rect2(0, 0, 400, 200)
 
 func _ready():
 	randomize()
@@ -21,15 +20,22 @@ func spawn_crab():
 	var crab = crab_source.instance()
 	add_child(crab)
 	
-	crab.position.x = (rect_bound.position.x) + randi() % (rect_bound.size.x as int)
-	crab.position.y = (rect_bound.position.y) + randi() % (rect_bound.size.y as int)
-
+	var rand_position := MapManager.pot_center
+	
+	while(MapManager.pot_center.distance_squared_to(rand_position) < MapManager.pot_radius*MapManager.pot_radius):
+		
+		rand_position.x = (MapManager.rect_bounds.position.x) + randi() % (MapManager.rect_bounds.size.x as int)
+		rand_position.y = (MapManager.rect_bounds.position.y) + randi() % (MapManager.rect_bounds.size.y as int)
+	
+	crab.position = rand_position
+	#print(MapManager.pot_center.distance_to(rand_position))
+	
 func check_crab_bounds():
 	
 	for child in get_children():
 		if not (child is GCrab):
 			continue
-		if not rect_bound.has_point(child.position):
+		if not MapManager.rect_bounds.has_point(child.position):
 			child.queue_free()
 			spawn_crab()
 
