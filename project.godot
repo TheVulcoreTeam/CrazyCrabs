@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "GCrab",
 "language": "GDScript",
 "path": "res://Game/Actors/GCrab.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Pot",
+"language": "GDScript",
+"path": "res://Game/Actors/Pot.gd"
 } ]
 _global_script_class_icons={
 "Crab": "",
-"GCrab": ""
+"GCrab": "",
+"Pot": ""
 }
 
 [application]
