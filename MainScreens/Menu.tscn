@@ -104,3 +104,5 @@ text = "DEVELOPED BY VULCORE TEAM"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Scores" to="." method="_on_Scores_pressed"]
