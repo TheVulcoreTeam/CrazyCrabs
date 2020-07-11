@@ -48,7 +48,7 @@ margin_left = -5.0
 margin_top = -3.0
 margin_right = 388.0
 margin_bottom = 211.0
-color = Color( 1, 0.718167, 0.11, 1 )
+color = Color( 1, 0.717647, 0.109804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,23 +124,24 @@ __meta__ = {
 [node name="crabmenu" type="AnimatedSprite" parent="."]
 position = Vector2( 325.091, 139.783 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="crabmenu2" type="AnimatedSprite" parent="."]
 position = Vector2( 268.459, 94.0051 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="crabmenu3" type="AnimatedSprite" parent="."]
 position = Vector2( 242.254, 149.223 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="crabmenu4" type="AnimatedSprite" parent="."]
 position = Vector2( 200.471, 106.754 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="logotemp" type="Label" parent="."]
