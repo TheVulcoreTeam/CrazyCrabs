@@ -26,11 +26,15 @@ var crab_rect
 
 var can_move := true
 
+onready var pot = get_tree().get_nodes_in_group("Pot")
+
 func _ready():
 	# Este randomize deberia ir en un lugar con mas jerarquia**
 	randomize()
-	velocity = 0.5+(randf()*1.5)
+	velocity = 0.5 + (randf() * 1.5)
 	new_random_angle()
+	
+	if pot and pot.size() > 0: pot = pot[0]
 
 func _process(delta):
 	if Main.DEBUG_ACTORS: update()
@@ -88,16 +92,9 @@ func capture():
 	capture_position = self.position
 	$Collision.disabled = true
 	can_move = false
-	$CookingTime.start()
-
-func _on_CookingTime_timeout():
-	Main.store_score += 1
-	Main.store_time += 3
-	Main.store_crab_cooking_amount -= 1
-	
-	Events.emit_signal("update_score", Main.store_score)
-	SoundManager.play_sound("ADD_SCORE")
-	queue_free()
+	$ExitTime.start()
 	
 func _input(event):
 	mouse_position = event.position
+
+
