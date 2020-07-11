@@ -4,12 +4,11 @@
 
 [node name="GCrab" type="KinematicBody2D"]
 script = ExtResource( 1 )
+debug_radius = null
+debug_color_1 = null
+debug_color_2 = null
+debug_color_3 = null
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-
-[node name="CookingTime" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-[connection signal="timeout" from="CookingTime" to="." method="_on_CookingTime_timeout"]
