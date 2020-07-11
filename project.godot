@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Actors/Crab/Crab.gd"
 }, {
-"base": "Node2D",
+"base": "KinematicBody2D",
 "class": "GCrab",
 "language": "GDScript",
 "path": "res://Game/Actors/GCrab.gd"

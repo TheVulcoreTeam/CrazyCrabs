@@ -48,3 +48,7 @@ func update_scores(dict):
 			scoreboard.bbcode_text += str(score.rank).pad_zeros(3)+'. '+str(score.score).pad_zeros(6)+' - '+score.nickname+'\n'
 	else:
 		scoreboard.bbcode_text = 'No scores reported, be the first!'
+
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://MainScreens/Menu.tscn")
