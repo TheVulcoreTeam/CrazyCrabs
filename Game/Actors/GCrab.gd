@@ -21,6 +21,11 @@ export var debug_color_3 := Color(0.6,0.3,0.3)
 ####
 var velocity = 1
 
+var rect_size
+var crab_rect
+
+var can_move := true
+
 func _ready():
 	# Este randomize deberia ir en un lugar con mas jerarquia**
 	randomize()
@@ -39,8 +44,11 @@ func _draw():
 	draw_circle(angle_vector*(debug_radius+5), 5.5, debug_color_3)
 
 func _physics_process(delta):
-	var rect_size = 16
-	var crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
+	if not can_move:
+		return
+	
+	rect_size = 16
+	crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
 	
 	if Input.is_action_pressed("click_derecho") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
 		# apply right rotation
@@ -84,10 +92,13 @@ func capture():
 	is_capture = true
 	capture_position = self.position
 	$Collision.disabled = true
+	can_move = false
 	$CookingTime.start()
 
 func _on_CookingTime_timeout():
 	Main.store_score += 1
+	Main.store_time += 3
+	
 	Events.emit_signal("update_score", Main.store_score)
 	SoundManager.play_sound("ADD_SCORE")
 	queue_free()

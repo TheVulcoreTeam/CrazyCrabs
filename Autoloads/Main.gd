@@ -5,7 +5,7 @@ const DEBUG_ACTORS := false
 const BGM := true
 
 var store_score := 0
-var store_time := 60
+var store_time := 25
 
 func _ready():
 	MusicManager.play(MusicManager.Music.GAME)
