@@ -66,6 +66,8 @@ func new_random_angle():
 	angle_vector = Vector2(0,1).rotated(angle)
 	$Sprite.rotation = angle - (PI/2.0)
 	$Sprite.flip_v = !$Sprite.flip_v
+	
+	SoundManager.play_sound("IMPACT")
 
 func capture():
 	is_capture = true
@@ -75,6 +77,7 @@ func capture():
 func _on_CookingTime_timeout():
 	Main.store_score += 1
 	Events.emit_signal("update_score", Main.store_score)
+	SoundManager.play_sound("ADD_SCORE")
 	queue_free()
 	
 func _input(event):
