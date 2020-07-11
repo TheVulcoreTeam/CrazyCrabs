@@ -13,3 +13,11 @@ func _on_Start_pressed():
 func _on_Scores_pressed():
 	get_tree().change_scene("res://MainScreens/EndLevel.tscn")
 
+
+
+func _on_Exit_pressed():
+	get_tree().quit()
+
+
+func _on_Credits_pressed():
+	pass # Replace with function body.

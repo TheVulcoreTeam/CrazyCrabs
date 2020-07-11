@@ -38,9 +38,9 @@ __meta__ = {
 }
 
 [node name="Start" type="TextureButton" parent="."]
-margin_left = 7.38101
+margin_left = 30.381
 margin_top = 102.655
-margin_right = 78.381
+margin_right = 101.381
 margin_bottom = 116.655
 rect_scale = Vector2( 0.805488, 0.805488 )
 texture_normal = ExtResource( 5 )
@@ -52,9 +52,9 @@ __meta__ = {
 }
 
 [node name="Scores" type="TextureButton" parent="."]
-margin_left = 6.57368
+margin_left = 29.5737
 margin_top = 122.61
-margin_right = 91.5737
+margin_right = 114.574
 margin_bottom = 137.61
 rect_scale = Vector2( 0.757951, 0.757951 )
 texture_normal = ExtResource( 11 )
@@ -66,9 +66,9 @@ __meta__ = {
 }
 
 [node name="Credits" type="TextureButton" parent="."]
-margin_left = 7.47979
+margin_left = 30.4798
 margin_top = 142.041
-margin_right = 105.48
+margin_right = 128.48
 margin_bottom = 156.041
 rect_scale = Vector2( 0.753604, 0.753604 )
 texture_normal = ExtResource( 15 )
@@ -80,9 +80,9 @@ __meta__ = {
 }
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_left = 8.4697
+margin_left = 31.4697
 margin_top = 161.26
-margin_right = 65.4697
+margin_right = 88.4697
 margin_bottom = 175.26
 rect_scale = Vector2( 0.75536, 0.75536 )
 texture_normal = ExtResource( 9 )
@@ -106,3 +106,5 @@ __meta__ = {
 }
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Scores" to="." method="_on_Scores_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
