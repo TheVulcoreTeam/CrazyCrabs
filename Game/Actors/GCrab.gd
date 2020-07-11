@@ -40,10 +40,13 @@ func _physics_process(delta):
 		# apply rotation
 		angle = $Sprite.rotation + (PI/2.0) + PI*0.1
 		angle_vector = Vector2(0, 1).rotated(angle)
-		$Sprite.rotation = angle - (PI/2.0)
+		$Sprite.rotation = angle - (PI/1.5)
+		$Sprite/Arrow.visible = true
 	else:
 		var collision := move_and_collide(angle_vector)
-	
+		
+		$Sprite/Arrow.visible = false
+		
 		if collision != null:
 			# Aqui la logica para cambiar el angulo, por ahora es random
 			new_random_angle()

@@ -33,6 +33,12 @@ func check_crab_bounds():
 			child.queue_free()
 			spawn_crab()
 
-
 func _on_update_score(score):
 	$Score.text = "Score: " + str(score)
+
+func _on_Countdown_timeout():
+	Main.store_time -= 1
+	$Time.text = "Time: " + str(Main.store_time)
+	
+	if Main.store_time == 0:
+		get_tree().change_scene("res://MainScreens/EndLevel.tscn")
