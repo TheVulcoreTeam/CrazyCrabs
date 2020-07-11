@@ -27,11 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK2020"
-<<<<<<< HEAD
-run/main_scene="res://MainScreens/EndLevel.tscn"
-=======
 run/main_scene="res://MainScreens/Splash.tscn"
->>>>>>> bf4a7ffb0fcb3de2ec2c222f129b8bfb6d6b6a38
 config/icon="res://icon.png"
 
 [autoload]
