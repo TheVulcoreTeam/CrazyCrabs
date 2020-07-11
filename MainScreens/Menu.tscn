@@ -21,16 +21,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 13
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 outline_color = Color( 0.368627, 0.27451, 0.27451, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
@@ -38,7 +38,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 22
 font_data = ExtResource( 14 )
 
@@ -56,7 +56,7 @@ margin_left = 4.3459
 margin_top = 86.5948
 margin_right = 96.3459
 margin_bottom = 108.595
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
 custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Start"
@@ -70,7 +70,7 @@ margin_left = 1.78466
 margin_top = 105.922
 margin_right = 109.785
 margin_bottom = 127.922
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
 custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Scores"
@@ -84,7 +84,7 @@ margin_left = 0.908825
 margin_top = 125.219
 margin_right = 124.909
 margin_bottom = 147.219
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
 custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Credits"
@@ -98,7 +98,7 @@ margin_left = -2.45603
 margin_top = 143.013
 margin_right = 89.544
 margin_bottom = 165.013
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
 custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
 text = "Exit"
@@ -112,7 +112,7 @@ margin_left = 178.12
 margin_top = 194.876
 margin_right = 378.121
 margin_bottom = 208.876
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "DEVELOPED BY VULCORE TEAM"
 __meta__ = {
@@ -121,31 +121,32 @@ __meta__ = {
 
 [node name="crabmenu" type="AnimatedSprite" parent="."]
 position = Vector2( 339.107, 97.0681 )
-frames = SubResource( 3 )
-frame = 2
+frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="crabmenu5" type="AnimatedSprite" parent="."]
 position = Vector2( 255.012, 102.407 )
-frames = SubResource( 3 )
-frame = 2
+frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="crabmenu2" type="AnimatedSprite" parent="."]
 position = Vector2( 291.151, 139.39 )
-frames = SubResource( 3 )
-frame = 2
+frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="crabmenu3" type="AnimatedSprite" parent="."]
 position = Vector2( 210.218, 145.886 )
-frames = SubResource( 3 )
-frame = 1
+frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="crabmenu4" type="AnimatedSprite" parent="."]
 position = Vector2( 159.682, 108.343 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="logotemp" type="Label" parent="."]
@@ -153,7 +154,7 @@ margin_left = 78.0
 margin_top = 34.0
 margin_right = 320.0
 margin_bottom = 56.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Crazy Crabs"
 __meta__ = {

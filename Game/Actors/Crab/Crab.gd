@@ -14,7 +14,7 @@ func _on_ExitTime_timeout():
 	if pot and pot.cover_off:
 		is_capture = false
 		$Collision.disabled = false
-		can_move = true
+		clickeable = true
 		
 		var direction = Vector2(1, 0).rotated(deg2rad(rand_range(0, 360))) * 10
 		var tween = Tween.new()
