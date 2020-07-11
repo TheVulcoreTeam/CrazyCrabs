@@ -24,7 +24,7 @@ var velocity = 1
 var rect_size
 var crab_rect
 
-var can_move := true
+var clickeable := true
 
 onready var pot = get_tree().get_nodes_in_group("Pot")
 
@@ -51,14 +51,14 @@ func _physics_process(delta):
 	rect_size = 16
 	crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
 	
-	if Input.is_action_pressed("click_derecho") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
+	if Input.is_action_pressed("click_derecho") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect) and clickeable:
 		# apply right rotation
 		angle = $Sprite.rotation + (PI/2.0) + PI*0.1
 		angle_vector = Vector2(0, 1).rotated(angle)
 		$Sprite.rotation_degrees += 10
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
-	elif Input.is_action_pressed("click_izquierdo") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect):
+	elif Input.is_action_pressed("click_izquierdo") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect) and clickeable:
 		# apply Left rotation
 		angle = $Sprite.rotation - (PI/2.0) - PI*0.1
 		angle_vector = Vector2(0, -1).rotated(angle)
@@ -95,8 +95,8 @@ func capture():
 	is_capture = true
 	capture_position = self.position
 	$Collision.disabled = true
-	can_move = false
 	$ExitTime.start()
+	clickeable = false
 	
 func _input(event):
 	mouse_position = event.position
