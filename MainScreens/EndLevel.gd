@@ -17,6 +17,7 @@ func _ready():
 	
 	if Main.game_result == Main.GameResult.NONE:
 		$Save.visible = false
+		$TextEdit.visible = false
 	
 func _on_Save_pressed():
 	save.disabled = true
