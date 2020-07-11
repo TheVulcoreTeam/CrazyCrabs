@@ -64,7 +64,6 @@ func _physics_process(delta):
 	elif is_capture:
 		capture_t += delta*2
 		self.position = capture_position.linear_interpolate(Vector2(194, 104), capture_t)
-		
 	else:
 		var collision := move_and_collide(angle_vector *velocity)
 		
@@ -81,7 +80,7 @@ func new_random_angle():
 	$Sprite.rotation = angle - (PI/2.0)
 	$Sprite.flip_v = !$Sprite.flip_v
 	
-	SoundManager.play_sound("IMPACT")
+	SoundManager.play_sound("HIT_CRAB_" + str(int(round(rand_range(1,3)))))
 
 func capture():
 	is_capture = true
@@ -93,6 +92,7 @@ func capture():
 func _on_CookingTime_timeout():
 	Main.store_score += 1
 	Main.store_time += 3
+	Main.store_crab_cooking_amount -= 1
 	
 	Events.emit_signal("update_score", Main.store_score)
 	SoundManager.play_sound("ADD_SCORE")

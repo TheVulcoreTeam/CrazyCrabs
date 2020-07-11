@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/HIT_CRAB_2.ogg-67ad814cc1a42502b8128bedea93a268.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/HIT_CRAB_2.ogg"
+dest_files=[ "res://.import/HIT_CRAB_2.ogg-67ad814cc1a42502b8128bedea93a268.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

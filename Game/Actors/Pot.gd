@@ -17,3 +17,4 @@ func _on_CaptureArea_body_entered(body):
 	if cover_off and body is GCrab:
 		body = body as GCrab
 		body.capture()
+		Main.store_crab_cooking_amount += 1
