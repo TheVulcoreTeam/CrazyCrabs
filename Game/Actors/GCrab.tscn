@@ -1,14 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Game/Actors/GCrab.gd" type="Script" id=1]
+[ext_resource path="res://Game/Actors/Crab/arrow.png" type="Texture" id=2]
 
 [node name="GCrab" type="KinematicBody2D"]
 script = ExtResource( 1 )
-debug_radius = null
-debug_color_1 = null
-debug_color_2 = null
-debug_color_3 = null
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
+[node name="Arrow" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -0.0683116, 9.03681e-06 )
+rotation = 4.71239
+texture = ExtResource( 2 )
+offset = Vector2( -1.09139e-11, -20.0683 )
+
 [node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="CookingTime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="CookingTime" to="." method="_on_CookingTime_timeout"]
