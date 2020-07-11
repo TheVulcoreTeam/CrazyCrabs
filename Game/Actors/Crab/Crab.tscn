@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Actors/GCrab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Actors/Crab/Crab.gd" type="Script" id=2]
@@ -18,14 +18,45 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 16.2632
 
+[sub_resource type="Animation" id=3]
+resource_name = "Captured"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
 [node name="Crab" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
 animation = "Move"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Collision" parent="." index="1"]
 shape = SubResource( 2 )
+
+[node name="Anim" type="AnimationPlayer" parent="." index="2"]
+anims/Captured = SubResource( 3 )

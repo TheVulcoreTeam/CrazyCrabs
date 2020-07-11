@@ -32,6 +32,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Main="*res://Autoloads/Main.gd"
 Events="*res://Autoloads/Events.gd"
 MusicManager="*res://Autoloads/MusicManager.tscn"
 SoundManager="*res://Autoloads/SoundManager.tscn"
