@@ -40,5 +40,5 @@ func _on_Countdown_timeout():
 	Main.store_time -= 1
 	$Time.text = "Time: " + str(Main.store_time)
 	
-	if Main.store_time == 0:
+	if Main.store_time <= 0:
 		get_tree().change_scene("res://MainScreens/EndLevel.tscn")
