@@ -30,6 +30,7 @@ func _on_Save_pressed():
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))
 	
 	Main.reset_store()
+	Main.game_result = Main.GameResult.NONE
 
 func _http_request_completed(result, response_code, headers, body):
 	save.hide()
@@ -55,4 +56,5 @@ func update_scores(dict):
 
 func _on_Back_pressed():
 	Main.reset_store()
+	Main.game_result = Main.GameResult.NONE
 	get_tree().change_scene("res://MainScreens/Menu.tscn")
