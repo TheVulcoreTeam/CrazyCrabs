@@ -73,6 +73,7 @@ func _physics_process(delta):
 		if collision != null:
 			# Aqui la logica para cambiar el angulo, por ahora es random
 			new_random_angle()
+			EffectManager.crash_effect(collision.position)
 
 func new_random_angle():
 	angle = randf() * 2 * PI
