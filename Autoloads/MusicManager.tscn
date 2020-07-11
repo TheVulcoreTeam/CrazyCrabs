@@ -1,41 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Title Screen.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/BGM/GameMusic.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Autoloads/MusicManager.gd" type="Script" id=2]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Level 2.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Ending.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Level 3.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Level 1.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Win.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/BGM/Juhani Junkala - Game Over.ogg" type="AudioStream" id=8]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource( 2 )
 
-[node name="TitleScreen" type="AudioStreamPlayer" parent="."]
+[node name="Game" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-bus = "BGM"
-
-[node name="LevelPack1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-bus = "BGM"
-
-[node name="LevelPack2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-bus = "BGM"
-
-[node name="LevelPack3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-bus = "BGM"
-
-[node name="Ending" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-bus = "BGM"
-
-[node name="GameOver" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-bus = "BGM"
-
-[node name="Win" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-bus = "BGM"

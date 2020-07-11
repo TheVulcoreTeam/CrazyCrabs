@@ -14,8 +14,8 @@ func _ready():
 	http_request.connect('request_completed', self, '_http_request_completed')
 	http_results.connect('request_completed', self, '_on_ranking_obtained')
 	http_results.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/get_scores', headers, false, HTTPClient.METHOD_POST, JSON.print({}))
-
-
+	
+	
 func _on_Save_pressed():
 	save.disabled = true
 	text_field.readonly = true
@@ -26,7 +26,8 @@ func _on_Save_pressed():
 	}
 	var headers = ["Content-Type: application/json"]
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))
-
+	
+	Main.reset_store()
 
 func _http_request_completed(result, response_code, headers, body):
 	save.hide()
@@ -51,4 +52,5 @@ func update_scores(dict):
 
 
 func _on_Back_pressed():
+	Main.reset_store()
 	get_tree().change_scene("res://MainScreens/Menu.tscn")

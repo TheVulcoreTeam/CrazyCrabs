@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ADD_SCORE.ogg-e9704acbfc1279a15929649b0c06c53d.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/ADD_SCORE.ogg"
+dest_files=[ "res://.import/ADD_SCORE.ogg-e9704acbfc1279a15929649b0c06c53d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
