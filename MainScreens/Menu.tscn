@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://MainScreens/Menu.gd" type="Script" id=1]
 [ext_resource path="res://MainScreens/Buttons/Scoresclic.png" type="Texture" id=2]
@@ -18,10 +18,26 @@
 [ext_resource path="res://MainScreens/Buttons/creditshover.png" type="Texture" id=16]
 [ext_resource path="res://MainScreens/Buttons/creditsdisable.png" type="Texture" id=17]
 [ext_resource path="res://MainScreens/Buttons/creditsclic.png" type="Texture" id=18]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_3.png" type="Texture" id=19]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_4.png" type="Texture" id=20]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_2.png" type="Texture" id=21]
+[ext_resource path="res://Game/Actors/Crab/cangrejo_1.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
 outline_color = Color( 0.368627, 0.27451, 0.27451, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
 font_data = ExtResource( 14 )
 
 [node name="Menu" type="Node2D"]
@@ -101,6 +117,39 @@ margin_bottom = 208.876
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.34902, 0.243137, 0.0470588, 1 )
 text = "DEVELOPED BY VULCORE TEAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crabmenu" type="AnimatedSprite" parent="."]
+position = Vector2( 325.091, 139.783 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="crabmenu2" type="AnimatedSprite" parent="."]
+position = Vector2( 268.459, 94.0051 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="crabmenu3" type="AnimatedSprite" parent="."]
+position = Vector2( 242.254, 149.223 )
+frames = SubResource( 2 )
+frame = 3
+playing = true
+
+[node name="crabmenu4" type="AnimatedSprite" parent="."]
+position = Vector2( 200.471, 106.754 )
+frames = SubResource( 2 )
+frame = 2
+playing = true
+
+[node name="logotemp" type="Label" parent="."]
+margin_left = 78.0
+margin_top = 34.0
+margin_right = 320.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 3 )
+text = "Crazy Crabs"
 __meta__ = {
 "_edit_use_anchors_": false
 }
