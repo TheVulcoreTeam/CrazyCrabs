@@ -6,7 +6,7 @@ var tnt_source = preload("res://Game/Actors/TNTCrab/TNTCrab.tscn")
 export var max_crab_count := 20
 export var crab_count := 2
 
-export var explosive_probability := 0.0
+export var explosive_probability := -1.0
 # Permite spawnear
 var spawn_delay := true
 
