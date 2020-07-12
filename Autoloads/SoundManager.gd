@@ -33,7 +33,7 @@ func _ready():
 					sounds[file_name_key] = load(file_name_to_load)
 					print_debug(file_name_to_load)
 				elif file_name.get_extension() == EXTENSION:
-					file_name_to_load = (dir.get_current_dir() + file_name)
+					file_name_to_load = (dir.get_current_dir() + "/" + file_name)
 					file_name_key = file_name.replace("." + EXTENSION, "")
 					sounds[file_name_key] = load(file_name_to_load)
 			file_name = dir.get_next()
