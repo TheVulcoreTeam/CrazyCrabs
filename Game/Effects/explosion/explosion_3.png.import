@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/explosion_8.png-b80108af40bc10663694ffb9b2d68c0d.stex"
+path="res://.import/explosion_3.png-be0e1af6645c55abbab450b7aed19a67.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Actors/TNTCrab/explosion/explosion_8.png"
-dest_files=[ "res://.import/explosion_8.png-b80108af40bc10663694ffb9b2d68c0d.stex" ]
+source_file="res://Game/Effects/explosion/explosion_3.png"
+dest_files=[ "res://.import/explosion_3.png-be0e1af6645c55abbab450b7aed19a67.stex" ]
 
 [params]
 
