@@ -2,10 +2,12 @@ extends KinematicBody2D
 
 class_name Pot
 
-var cover_off := false
+
+var cover_off := true
 var cooked_crab := load("res://Game/Actors/Pot/CookedCrabs/CookedCrab.tscn")
 
 var cooked_crabs_positions_ids := []
+
 
 var last_crab_amount = 0
 
@@ -24,6 +26,21 @@ func _process(delta):
 	
 	if not cover_off and Main.store_crab_cooking_amount > 0:
 		cook_bar_progress(($CookingTime.wait_time - $CookingTime.time_left)/ $CookingTime.wait_time*100)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		cover_off = false
+		
+		$Cover/Anim.play_backwards("CoverOn")
+		$Collision.disabled = false
+		$CookingTime.start()
+		SoundManager.play_sound("POT_ON")
+	elif Input.is_action_just_released("ui_accept"):
+		cover_off = true
+		$Cover/Anim.play("CoverOn")
+		$Collision.disabled = true
+		$CookingTime.stop()
+		SoundManager.play_sound("POT_OFF")
+		cook_bar_progress(0)
 
 func cook_bar_progress(_value):
 	$CookBar/ProgressBar.value = _value

@@ -91,6 +91,7 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CookedCrabs" type="Node2D" parent="."]
@@ -153,6 +154,7 @@ shape = SubResource( 5 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
+disabled = true
 
 [node name="CookingTime" type="Timer" parent="."]
 wait_time = 3.0
