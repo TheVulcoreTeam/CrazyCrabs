@@ -38,8 +38,6 @@ func spawn_crab():
 	crab.angle_vector = Vector2(0,1).rotated(crab.angle)
 	crab.get_node("Sprite").rotation = crab.angle - (PI/2.0)
 	
-	#print(MapManager.pot_center.distance_to(rand_position))
-	
 func check_crab_bounds():
 	
 	for child in $Crabs.get_children():
