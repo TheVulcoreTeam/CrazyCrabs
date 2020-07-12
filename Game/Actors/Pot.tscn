@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Actors/Pot/olla_2.png" type="Texture" id=1]
 [ext_resource path="res://Game/Actors/Pot/tapa.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game/Actors/Pot/olla_4.png" type="Texture" id=4]
 [ext_resource path="res://Game/Actors/Pot/olla_3.png" type="Texture" id=5]
 [ext_resource path="res://Game/Actors/Pot/olla_1.png" type="Texture" id=6]
+[ext_resource path="res://Game/Actors/Pot/CookBar/CookBar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,6 +17,23 @@ animations = [ {
 } ]
 
 [sub_resource type="Animation" id=2]
+resource_name = "Cook"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.5, 0.0, -1.5, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -42,13 +60,13 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 17.0294
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 radius = 34.1321
 
 [node name="Pot" type="KinematicBody2D" groups=[
@@ -58,6 +76,7 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Cover" type="Sprite" parent="."]
@@ -65,23 +84,30 @@ position = Vector2( 0, -3 )
 texture = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="Cover"]
-anims/CoverOn = SubResource( 2 )
+anims/Cook = SubResource( 2 )
+anims/CoverOn = SubResource( 3 )
 
 [node name="TouchArea" type="TouchScreenButton" parent="."]
 position = Vector2( -32, -35 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CaptureArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="CaptureArea"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CookingTime" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="CookBar" parent="." instance=ExtResource( 7 )]
+margin_left = -20.2202
+margin_top = 39.8708
+margin_right = -20.2202
+margin_bottom = 39.8708
 [connection signal="pressed" from="TouchArea" to="." method="_on_TouchArea_pressed"]
 [connection signal="body_entered" from="CaptureArea" to="." method="_on_CaptureArea_body_entered"]
 [connection signal="timeout" from="CookingTime" to="." method="_on_CookingTime_timeout"]
