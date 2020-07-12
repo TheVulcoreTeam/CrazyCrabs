@@ -21,3 +21,11 @@ func _on_Exit_pressed():
 
 func _on_Credits_pressed():
 	get_tree().change_scene("res://MainScreens/Credits.tscn")
+
+
+func _on_close_pressed():
+	$Tutorial.visible = false
+
+
+func _on_Help_pressed():
+	$Tutorial.visible = true
