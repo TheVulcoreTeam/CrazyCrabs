@@ -27,7 +27,7 @@ script = ExtResource( 1 )
 
 [node name="Background" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
+frame = 5
 playing = true
 centered = false
 
@@ -117,7 +117,7 @@ __meta__ = {
 autostart = true
 
 [node name="SpawnerTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="DifficultTimer" type="Timer" parent="."]
