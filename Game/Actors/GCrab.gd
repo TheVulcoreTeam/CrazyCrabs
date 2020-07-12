@@ -55,14 +55,14 @@ func _physics_process(delta):
 		# apply right rotation
 		angle = $Sprite.rotation + (PI/2.0) + PI*0.1
 		angle_vector = Vector2(0, 1).rotated(angle)
-		$Sprite.rotation_degrees += 10
+		$Sprite.rotation_degrees += 6
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
 	elif Input.is_action_pressed("click_izquierdo") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect) and clickeable:
 		# apply Left rotation
 		angle = $Sprite.rotation - (PI/2.0) - PI*0.1
 		angle_vector = Vector2(0, -1).rotated(angle)
-		$Sprite.rotation_degrees -= 10
+		$Sprite.rotation_degrees -= 6
 		$Sprite/Arrow.visible = true
 		$Sprite.scale = Vector2(1.2, 1.2)
 	elif is_capture:
@@ -98,7 +98,6 @@ func capture():
 	Main.store_crab_cooking_amount += 1
 	$ExitTime.start()
 	clickeable = false
-	print_debug("capture", Main.store_crab_cooking_amount)
 	
 func _input(event):
 	mouse_position = event.position

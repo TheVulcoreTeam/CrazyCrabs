@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://MainScreens/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=2]
@@ -7,39 +7,26 @@
 [ext_resource path="res://Game/Actors/Crab/cangrejo_4.png" type="Texture" id=5]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_1.png" type="Texture" id=6]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_2.png" type="Texture" id=7]
-[ext_resource path="res://Game/Stage/Background/background_6.png" type="Texture" id=8]
-[ext_resource path="res://Game/Stage/Background/background_3.png" type="Texture" id=9]
-[ext_resource path="res://Game/Stage/Background/background_2.png" type="Texture" id=10]
-[ext_resource path="res://Game/Stage/Background/background_1.png" type="Texture" id=11]
-[ext_resource path="res://Game/Stage/Background/background_5.png" type="Texture" id=12]
-[ext_resource path="res://Game/Stage/Background/background_4.png" type="Texture" id=13]
+[ext_resource path="res://MainScreens/Credits/background_credits.png" type="Texture" id=8]
 [ext_resource path="res://MainScreens/Credits/E Varas.png" type="Texture" id=14]
 [ext_resource path="res://MainScreens/Credits/M Muñoz.png" type="Texture" id=15]
 [ext_resource path="res://MainScreens/Credits/M Ellisca.png" type="Texture" id=16]
 [ext_resource path="res://MainScreens/Credits/G Moena.png" type="Texture" id=17]
 [ext_resource path="res://MainScreens/Credits/M Negrier.png" type="Texture" id=18]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 12
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 9
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 8
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -47,16 +34,16 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="DynamicFont" id=6]
-size = 14
+[sub_resource type="DynamicFont" id=5]
+size = 15
 outline_color = Color( 0.960784, 0.94902, 0.94902, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 8
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "Menu"
 length = 4.0
 loop = true
@@ -67,10 +54,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.00999999, -1.49012e-08, 2, 4.02 ),
+"times": PoolRealArray( -0.00999999, -1.49012e-08, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 278.008, 57.4657 ), Vector2( 278.008, 57.4657 ), Vector2( 360, 57.466 ), Vector2( 278.008, 57.4657 ) ]
+"values": [ Vector2( 278.008, 57.4657 ), Vector2( 290, 57.466 ), Vector2( 360, 57.466 ), Vector2( 290, 57.466 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("crab2:position")
@@ -82,48 +69,46 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 276.479, 138.882 ), Vector2( 360, 138.882 ), Vector2( 276.479, 138.882 ) ]
+"values": [ Vector2( 290, 155 ), Vector2( 360, 155 ), Vector2( 290, 155 ) ]
 }
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="fondo" type="AnimatedSprite" parent="."]
-position = Vector2( 192.034, 104.066 )
-frames = SubResource( 1 )
-frame = 2
-playing = true
+[node name="fondo" type="Sprite" parent="."]
+position = Vector2( 192.014, 103.99 )
+texture = ExtResource( 8 )
 
 [node name="Programmers" type="Label" parent="."]
-margin_left = 27.9739
-margin_top = 4.9561
-margin_right = 187.974
-margin_bottom = 20.9561
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
+margin_left = 39.9739
+margin_top = 15.9561
+margin_right = 199.974
+margin_bottom = 31.9561
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 text = "Programmers"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Art" type="Label" parent="."]
-margin_left = 28.2895
-margin_top = 121.041
-margin_right = 208.29
-margin_bottom = 137.041
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
+margin_left = 40.2895
+margin_top = 132.041
+margin_right = 220.29
+margin_bottom = 148.041
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 text = "Arts and Sounds"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Vassink" type="Label" parent="."]
-margin_left = 28.0567
-margin_top = 140.881
-margin_right = 292.057
-margin_bottom = 149.881
-custom_fonts/font = SubResource( 3 )
+margin_left = 40.0567
+margin_top = 151.881
+margin_right = 304.057
+margin_bottom = 160.881
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Eduardo (Vassink) Varas "
@@ -132,11 +117,11 @@ __meta__ = {
 }
 
 [node name="music" type="Label" parent="."]
-margin_left = 114.947
-margin_top = 194.521
-margin_right = 378.947
-margin_bottom = 203.521
-custom_fonts/font = SubResource( 4 )
+margin_left = 113.825
+margin_top = 190.031
+margin_right = 377.825
+margin_bottom = 199.031
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Music Attribution: Alex McCulloch"
@@ -145,11 +130,11 @@ __meta__ = {
 }
 
 [node name="Strell" type="Label" parent="."]
-margin_left = 26.9933
-margin_top = 101.533
-margin_right = 251.993
-margin_bottom = 110.533
-custom_fonts/font = SubResource( 3 )
+margin_left = 38.9933
+margin_top = 112.533
+margin_right = 263.993
+margin_bottom = 121.533
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Marcelo (Strell) Negrier "
@@ -158,11 +143,11 @@ __meta__ = {
 }
 
 [node name="FuryCode" type="Label" parent="."]
-margin_left = 28.0421
-margin_top = 29.2401
-margin_right = 292.042
-margin_bottom = 38.2401
-custom_fonts/font = SubResource( 3 )
+margin_left = 40.0421
+margin_top = 40.2401
+margin_right = 304.042
+margin_bottom = 49.2401
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Matias (FuryCode) Muñoz"
@@ -171,11 +156,11 @@ __meta__ = {
 }
 
 [node name="MKZ" type="Label" parent="."]
-margin_left = 27.7297
-margin_top = 54.2415
-margin_right = 291.729
-margin_bottom = 63.2415
-custom_fonts/font = SubResource( 3 )
+margin_left = 39.7297
+margin_top = 65.2415
+margin_right = 303.729
+margin_bottom = 74.2415
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.952941, 0.960784, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Marcus (MKZ) Ellisca "
@@ -184,11 +169,11 @@ __meta__ = {
 }
 
 [node name="Gino" type="Label" parent="."]
-margin_left = 27.3445
-margin_top = 78.8673
-margin_right = 117.344
-margin_bottom = 87.8673
-custom_fonts/font = SubResource( 3 )
+margin_left = 39.3445
+margin_top = 89.8673
+margin_right = 129.344
+margin_bottom = 98.8673
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Gino Moena"
@@ -197,15 +182,15 @@ __meta__ = {
 }
 
 [node name="crab" type="AnimatedSprite" parent="."]
-position = Vector2( 278.008, 57.4657 )
-frames = SubResource( 5 )
-frame = 2
+position = Vector2( 321.5, 57.466 )
+frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="crab2" type="AnimatedSprite" parent="."]
-position = Vector2( 276.479, 138.882 )
-frames = SubResource( 5 )
-frame = 1
+position = Vector2( 321.5, 155 )
+frames = SubResource( 4 )
+frame = 2
 playing = true
 
 [node name="logo" type="Sprite" parent="."]
@@ -215,12 +200,13 @@ texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 6.0
-margin_top = 182.0
+margin_top = 184.806
 margin_right = 74.0
-margin_bottom = 202.0
+margin_bottom = 204.806
+focus_mode = 0
 size_flags_stretch_ratio = 0.0
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
 custom_colors/font_color_pressed = Color( 0.870588, 0.156863, 0.443137, 1 )
 text = "Back"
@@ -230,35 +216,36 @@ __meta__ = {
 }
 
 [node name="vassink" type="Sprite" parent="."]
-position = Vector2( 15.3031, 145.359 )
+position = Vector2( 27.3031, 156.359 )
 texture = ExtResource( 14 )
 
 [node name="strell" type="Sprite" parent="."]
-position = Vector2( 14.3876, 105.721 )
+position = Vector2( 26.3876, 116.721 )
 texture = ExtResource( 18 )
 
 [node name="mkz" type="Sprite" parent="."]
-position = Vector2( 14.2016, 56.6487 )
+position = Vector2( 26.2016, 67.6487 )
 texture = ExtResource( 16 )
 
 [node name="gino" type="Sprite" parent="."]
-position = Vector2( 14.2326, 81.4258 )
+position = Vector2( 26.2326, 92.4258 )
 texture = ExtResource( 17 )
 
 [node name="fury" type="Sprite" parent="."]
-position = Vector2( 13.394, 32.0094 )
+position = Vector2( 25.394, 43.0094 )
 texture = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 262.161
-margin_top = 76.1432
-margin_right = 382.161
-margin_bottom = 117.143
-custom_fonts/font = SubResource( 7 )
+margin_left = 264.521
+margin_top = 78.9748
+margin_right = 384.521
+margin_bottom = 130.975
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "no crabs were
-damaged during 
-the development
+text = "no crabs 
+were damaged 
+during the 
+development
 of this game"
 align = 1
 __meta__ = {
@@ -266,5 +253,5 @@ __meta__ = {
 }
 
 [node name="MenuAnim" type="AnimationPlayer" parent="."]
-anims/Menu = SubResource( 8 )
+anims/Menu = SubResource( 7 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

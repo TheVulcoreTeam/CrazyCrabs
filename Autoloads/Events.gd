@@ -9,3 +9,4 @@ signal win()
 signal update_score(score)
 
 signal escape_crab()
+signal out_screen_crab()
