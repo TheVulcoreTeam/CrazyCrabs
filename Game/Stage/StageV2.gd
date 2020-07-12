@@ -2,8 +2,8 @@ extends Node2D
 
 var crab_source = preload("res://Game/Actors/Crab/Crab.tscn")
 
-export var max_crab_count := 40
-export var crab_count := 3
+export var max_crab_count := 20
+export var crab_count := 2
 
 func _ready():
 	randomize()
@@ -51,7 +51,7 @@ func _on_out_screen_crab():
 	spawn_crab()
 
 func _on_DifficultTimer_timeout():
-	crab_count += 2
+	crab_count += 1
 	if crab_count > max_crab_count:
 		crab_count = max_crab_count
 	print_debug("[CRAB COUNT] : ", crab_count)

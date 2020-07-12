@@ -35,7 +35,7 @@ func _ready():
 	
 # Nombre del sonido a ejecutar sin extenciòn .ogg,
 # por ejemplo GOOD_BLOCK_KILL
-func play_sound(sound_name : String, volume_db := 0.0, loop := false):
+func play_sound(sound_name : String, volume_db := 0.0, loop := false, pitch_scale := 1.0):
 	var sound = AudioStreamPlayer.new()
 	sound.bus = "SFX"
 	add_child(sound)
@@ -48,6 +48,7 @@ func play_sound(sound_name : String, volume_db := 0.0, loop := false):
 
 	sound.volume_db = volume_db
 	sound.stream.loop = loop
+	sound.pitch_scale = pitch_scale
 	sound.play()
 
 	sound.connect("finished", self, "_on_sound_finished", [sound])
