@@ -36,7 +36,7 @@ size = 9
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 7
+size = 8
 font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=5]
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "times": PoolRealArray( -0.00999999, -1.49012e-08, 2, 4.02 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 278.008, 57.4657 ), Vector2( 278.008, 57.4657 ), Vector2( 350, 57.466 ), Vector2( 278.008, 57.4657 ) ]
+"values": [ Vector2( 278.008, 57.4657 ), Vector2( 278.008, 57.4657 ), Vector2( 360, 57.466 ), Vector2( 278.008, 57.4657 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("crab2:position")
@@ -82,7 +82,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 276.479, 138.882 ), Vector2( 350, 138.882 ), Vector2( 276.479, 138.882 ) ]
+"values": [ Vector2( 276.479, 138.882 ), Vector2( 360, 138.882 ), Vector2( 276.479, 138.882 ) ]
 }
 
 [node name="Credits" type="Node2D"]
@@ -91,13 +91,13 @@ script = ExtResource( 1 )
 [node name="fondo" type="AnimatedSprite" parent="."]
 position = Vector2( 192.034, 104.066 )
 frames = SubResource( 1 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Programmers" type="Label" parent="."]
-margin_left = 7.97389
+margin_left = 27.9739
 margin_top = 4.9561
-margin_right = 167.974
+margin_right = 187.974
 margin_bottom = 20.9561
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
@@ -107,9 +107,9 @@ __meta__ = {
 }
 
 [node name="Art" type="Label" parent="."]
-margin_left = 9.28946
+margin_left = 28.2895
 margin_top = 121.041
-margin_right = 189.29
+margin_right = 208.29
 margin_bottom = 137.041
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
@@ -132,10 +132,10 @@ __meta__ = {
 }
 
 [node name="music" type="Label" parent="."]
-margin_left = 147.91
-margin_top = 197.194
-margin_right = 378.91
-margin_bottom = 206.194
+margin_left = 114.947
+margin_top = 194.521
+margin_right = 378.947
+margin_bottom = 203.521
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -197,15 +197,15 @@ __meta__ = {
 }
 
 [node name="crab" type="AnimatedSprite" parent="."]
-position = Vector2( 316.524, 57.4659 )
+position = Vector2( 278.008, 57.4657 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="crab2" type="AnimatedSprite" parent="."]
-position = Vector2( 315.813, 138.882 )
+position = Vector2( 276.479, 138.882 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="logo" type="Sprite" parent="."]
@@ -214,14 +214,15 @@ scale = Vector2( 0.115539, 0.115539 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 6.35959
-margin_top = 184.91
-margin_right = 74.3596
-margin_bottom = 209.91
+margin_left = 6.0
+margin_top = 182.0
+margin_right = 74.0
+margin_bottom = 202.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.396078, 0.192157, 0.145098, 1 )
-custom_colors/font_color_hover = Color( 1, 0.027451, 0.027451, 1 )
+custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
+custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
+custom_colors/font_color_pressed = Color( 0.870588, 0.156863, 0.443137, 1 )
 text = "Back"
 flat = true
 __meta__ = {
@@ -255,7 +256,7 @@ margin_right = 382.161
 margin_bottom = 117.143
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "no crabs was
+text = "no crabs were
 damaged during 
 the development
 of this game"
