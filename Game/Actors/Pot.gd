@@ -27,9 +27,14 @@ func _on_CaptureArea_body_entered(body):
 
 
 func _on_CookingTime_timeout():
-	Main.store_score += 1 * Main.store_crab_cooking_amount
+	var score_made = 1 * Main.store_crab_cooking_amount
+	Main.store_score += score_made
 	Main.store_time += 3 * Main.store_crab_cooking_amount
 	Main.store_crab_cooking_amount = 0
+
 	
 	Events.emit_signal("update_score", Main.store_score)
 	SoundManager.play_sound("COOKED_CRAB")
+
+	if score_made > 0:
+		EffectManager.score_effect(score_made)
