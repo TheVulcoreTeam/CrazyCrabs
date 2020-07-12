@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 class_name Pot
 
-
 var cover_off := true
 var cooked_crab := load("res://Game/Actors/Pot/CookedCrabs/CookedCrab.tscn")
 
@@ -64,7 +63,16 @@ func _process(delta):
 		SoundManager.play_sound("POT_OFF")
 		cook_bar_progress(0)
 		$CookBar.hide()
-		print("rel")
+		
+		for cooked_crab in cooked_crabs_instances:
+			if is_instance_valid(cooked_crab):
+				cooked_crab = cooked_crab as GCrab
+				cooked_crab.get_node("ExitTime").start()
+
+func escape_all():
+	for cooked_crab in cooked_crabs_instances:
+		if is_instance_valid(cooked_crab):
+			cooked_crab.escape = true
 
 func cook_bar_progress(_value):
 	$CookBar/ProgressBar.value = _value
