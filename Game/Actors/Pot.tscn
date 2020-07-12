@@ -144,6 +144,7 @@ playing = true
 anims/CoverOn = SubResource( 3 )
 
 [node name="TouchArea" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( -32, -35 )
 shape = SubResource( 4 )
 
@@ -183,6 +184,5 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CrabCounter"]
 anims/counter_change = SubResource( 7 )
-[connection signal="pressed" from="TouchArea" to="." method="_on_TouchArea_pressed"]
 [connection signal="body_entered" from="CaptureArea" to="." method="_on_CaptureArea_body_entered"]
 [connection signal="timeout" from="CookingTime" to="." method="_on_CookingTime_timeout"]

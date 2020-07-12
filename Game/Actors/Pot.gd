@@ -13,6 +13,7 @@ var last_crab_amount = 0
 
 func _ready():
 	cook_bar_progress(0)
+	$Cover.hide()
 	$CookBar.hide()
 	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
 
@@ -22,25 +23,46 @@ func _process(delta):
 		$CrabCounter/Label.text = str(Main.store_crab_cooking_amount)
 		$CrabCounter/AnimationPlayer.stop()
 		$CrabCounter/AnimationPlayer.play("counter_change")
-	last_crab_amount = Main.store_crab_cooking_amount
+		
+		if Main.store_crab_cooking_amount <= 12:
+			var add_amount = Main.store_crab_cooking_amount - last_crab_amount
+			
+			if add_amount > 0:
+				for i in range(add_amount):
+					captured_add()
+			else:
+				for i in range(-add_amount):
+					captured_remove()
+		
+		
+	last_crab_amount = Main.store_crab_cooking_amount 
 	
 	if not cover_off and Main.store_crab_cooking_amount > 0:
 		cook_bar_progress(($CookingTime.wait_time - $CookingTime.time_left)/ $CookingTime.wait_time*100)
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		cover_off = false
-		
+		$Cover.show()
 		$Cover/Anim.play_backwards("CoverOn")
 		$Collision.disabled = false
 		$CookingTime.start()
 		SoundManager.play_sound("POT_ON")
+		if Main.store_crab_cooking_amount > 0:
+			$CookBar.show()
+			cover_cook()
+		else:
+			cover_idle()
+		print("press")
 	elif Input.is_action_just_released("ui_accept"):
 		cover_off = true
+		$Cover.hide()
 		$Cover/Anim.play("CoverOn")
 		$Collision.disabled = true
 		$CookingTime.stop()
 		SoundManager.play_sound("POT_OFF")
 		cook_bar_progress(0)
+		$CookBar.hide()
+		print("rel")
 
 func cook_bar_progress(_value):
 	$CookBar/ProgressBar.value = _value
@@ -84,35 +106,12 @@ func captured_clean():
 	var children = $CookedCrabs.get_children()
 	for child in children:
 		child.queue_free()
-
-func _on_TouchArea_pressed():
-	if not $Cover/Anim.is_playing():
-		cover_off = not cover_off
-		
-		if cover_off:
-			$Cover/Anim.play("CoverOn")
-			$Collision.disabled = true
-			$CookingTime.stop()
-			SoundManager.play_sound("POT_OFF")
-			cook_bar_progress(0)
-			cover_idle()
-			$CookBar.hide()
-		else:
-			$Cover/Anim.play_backwards("CoverOn")
-			$Collision.disabled = false
-			$CookingTime.start()
-			SoundManager.play_sound("POT_ON")
-			if Main.store_crab_cooking_amount > 0:
-				$CookBar.show()
-				cover_cook()
-			else:
-				cover_idle()
+	cooked_crabs_positions_ids = []
 
 func _on_CaptureArea_body_entered(body):
 	if cover_off and body is GCrab:
 		body = body as GCrab
 		body.capture()
-		captured_add()
 		
 func _on_CookingTime_timeout():
 	var score_made = 1 * Main.store_crab_cooking_amount
