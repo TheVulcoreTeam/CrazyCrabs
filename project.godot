@@ -23,18 +23,24 @@ _global_script_classes=[ {
 "class": "Pot",
 "language": "GDScript",
 "path": "res://Game/Actors/Pot.gd"
+}, {
+"base": "GCrab",
+"class": "TNTCrab",
+"language": "GDScript",
+"path": "res://Game/Actors/TNTCrab/TNTCrab.gd"
 } ]
 _global_script_class_icons={
 "Crab": "",
 "GCrab": "",
-"Pot": ""
+"Pot": "",
+"TNTCrab": ""
 }
 
 [application]
 
 config/name="GMTK2020"
 run/main_scene="res://MainScreens/Splash.tscn"
-config/icon="res://Game/Actors/Crab/cangrejo_3.png"
+config/icon="res://icon.png"
 
 [autoload]
 
