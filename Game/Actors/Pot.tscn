@@ -57,7 +57,11 @@ radius = 34.1321
 script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
+<<<<<<< HEAD
 frames = SubResource( 1 )
+=======
+frames = SubResource( 5 )
+>>>>>>> a71b0664f001a2e708c659d10609f468d0a29214
 frame = 2
 playing = true
 

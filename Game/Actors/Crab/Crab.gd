@@ -9,8 +9,6 @@ func capture():
 
 
 func _on_ExitTime_timeout():
-	Main.store_crab_cooking_amount -= 1
-	
 	if pot and pot.cover_off:
 		is_capture = false
 		$Collision.disabled = false
@@ -29,6 +27,4 @@ func _on_ExitTime_timeout():
 		)
 		tween.start()
 		$Anim.play("Escape")
-		
-		print_debug("escapo uno D=", global_position + direction)
-	
+		Main.store_crab_cooking_amount -= 1

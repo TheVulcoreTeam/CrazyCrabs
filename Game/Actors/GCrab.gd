@@ -48,7 +48,7 @@ func _draw():
 	draw_circle(angle_vector*(debug_radius+5), 5.5, debug_color_3)
 
 func _physics_process(delta):
-	rect_size = 16
+	rect_size = 24
 	crab_rect = Rect2(position-Vector2(rect_size/2, rect_size/2), Vector2(rect_size, rect_size))
 	
 	if Input.is_action_pressed("click_derecho") and Rect2(mouse_position, Vector2.ONE).intersects(crab_rect) and clickeable:
@@ -95,8 +95,10 @@ func capture():
 	is_capture = true
 	capture_position = self.position
 	$Collision.disabled = true
+	Main.store_crab_cooking_amount += 1
 	$ExitTime.start()
 	clickeable = false
+	print_debug("capture", Main.store_crab_cooking_amount)
 	
 func _input(event):
 	mouse_position = event.position
