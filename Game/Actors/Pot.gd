@@ -7,11 +7,21 @@ var cooked_crab := load("res://Game/Actors/Pot/CookedCrabs/CookedCrab.tscn")
 
 var cooked_crabs_positions_ids := []
 
+var last_crab_amount = 0
+
 func _ready():
 	cook_bar_progress(0)
 	$CookBar.hide()
+	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
+
 
 func _process(delta):
+	if last_crab_amount != Main.store_crab_cooking_amount:
+		$CrabCounter/Label.text = str(Main.store_crab_cooking_amount)
+		$CrabCounter/AnimationPlayer.stop()
+		$CrabCounter/AnimationPlayer.play("counter_change")
+	last_crab_amount = Main.store_crab_cooking_amount
+	
 	if not cover_off and Main.store_crab_cooking_amount > 0:
 		cook_bar_progress(($CookingTime.wait_time - $CookingTime.time_left)/ $CookingTime.wait_time*100)
 
@@ -32,7 +42,7 @@ func captured_add():
 	
 	if cooked_crabs_positions_ids.has(rand_i):
 		rand_i = 0
-		while (cooked_crabs_positions_ids.has(rand_i) and rand_i < 12):
+		while (cooked_crabs_positions_ids.has(rand_i) and rand_i < 11):
 			rand_i += 1
 	
 	var instance = cooked_crab.instance()

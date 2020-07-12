@@ -37,56 +37,57 @@ position = Vector2( 192, 104 )
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 48, 26 )
 
 [node name="2" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 96, 0 )
+position = Vector2( 96, 26 )
 
 [node name="3" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 192, 0 )
+position = Vector2( 192, 26 )
 
 [node name="4" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 288, 0 )
+position = Vector2( 288, 26 )
 
 [node name="5" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 384, 0 )
+position = Vector2( 336, 26 )
 
 [node name="6" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 384, 52 )
+position = Vector2( 336, 52 )
 
 [node name="7" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 384, 104 )
+position = Vector2( 336, 104 )
 
 [node name="8" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 384, 156 )
+position = Vector2( 336, 156 )
 
 [node name="9" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 384, 208 )
+position = Vector2( 336, 182 )
 
 [node name="10" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 288, 208 )
+position = Vector2( 288, 182 )
 
 [node name="11" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 192, 208 )
+position = Vector2( 192, 182 )
 
 [node name="12" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 96, 208 )
+position = Vector2( 96, 182 )
 
 [node name="13" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 208 )
+position = Vector2( 48, 182 )
 
 [node name="14" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 156 )
+position = Vector2( 48, 156 )
 
 [node name="15" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 104 )
+position = Vector2( 48, 104 )
 
 [node name="16" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 0, 52 )
+position = Vector2( 48, 52 )
 
 [node name="Crabs" type="Node2D" parent="."]
 
 [node name="Score" type="Label" parent="."]
-margin_right = 384.0
+margin_right = 373.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
@@ -99,9 +100,9 @@ __meta__ = {
 }
 
 [node name="Time" type="Label" parent="."]
-margin_top = 17.4614
-margin_right = 384.0
-margin_bottom = 33.4614
+margin_top = 17.0
+margin_right = 373.0
+margin_bottom = 33.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Time: 25"
@@ -116,7 +117,7 @@ __meta__ = {
 autostart = true
 
 [node name="SpawnerTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="DifficultTimer" type="Timer" parent="."]
