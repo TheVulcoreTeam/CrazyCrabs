@@ -2,7 +2,7 @@ extends Node2D
 
 var crab_source = preload("res://Game/Actors/Crab/Crab.tscn")
 
-export var max_crab_count := 50
+export var max_crab_count := 40
 export var crab_count := 3
 
 func _ready():
@@ -12,23 +12,13 @@ func _ready():
 		spawn_crab()
 	
 	Events.connect("update_score", self, "_on_update_score")
+	Events.connect("out_screen_crab", self, "_on_out_screen_crab")
 
-func _process(delta):
-	check_crab_bounds()
 
 func spawn_crab():
-	
 	var crab = crab_source.instance()
+	crab.global_position = $SpawnPoints.get_node(str(int(rand_range(1, 16)))).global_position
 	$Crabs.add_child(crab)
-	
-	var rand_position := MapManager.pot_center
-	
-	while(MapManager.negative_spawn_rect_bounds.has_point(rand_position)):
-		
-		rand_position.x = (MapManager.rect_bounds.position.x) + randi() % (MapManager.rect_bounds.size.x as int)
-		rand_position.y = (MapManager.rect_bounds.position.y) + randi() % (MapManager.rect_bounds.size.y as int)
-	
-	crab.position = rand_position
 	
 	var dir_point := Vector2()
 	dir_point.x = (MapManager.negative_spawn_rect_bounds.position.x) + randi() % (MapManager.negative_spawn_rect_bounds.size.x as int)
@@ -37,21 +27,11 @@ func spawn_crab():
 	crab.angle = crab.position.angle_to_point(dir_point) + (PI/2.0)
 	crab.angle_vector = Vector2(0,1).rotated(crab.angle)
 	crab.get_node("Sprite").rotation = crab.angle - (PI/2.0)
-	
-	#print(MapManager.pot_center.distance_to(rand_position))
-	
-func check_crab_bounds():
-	
-	for child in $Crabs.get_children():
-		if not (child is GCrab):
-			continue
-		if not MapManager.rect_bounds.has_point(child.position):
-			child.queue_free()
-			spawn_crab()
-			
+
 
 func _on_update_score(score):
 	$Score.text = "Score: " + str(score)
+
 
 func _on_Countdown_timeout():
 	Main.store_time -= 1
@@ -63,18 +43,15 @@ func _on_Countdown_timeout():
 
 
 func _on_SpawnerTimer_timeout():
-	
 	if ($Crabs.get_child_count() < max_crab_count):
 		for i in range(3):
 			spawn_crab()
-			#print("SPAWNEO NUEVO")
-	
-	pass # Replace with function body.
 
+func _on_out_screen_crab():
+	spawn_crab()
 
 func _on_DifficultTimer_timeout():
-	crab_count += 3
+	crab_count += 2
 	if crab_count > max_crab_count:
 		crab_count = max_crab_count
-	print("[CRAB COUNT] : ", crab_count)
-	pass # Replace with function body.
+	print_debug("[CRAB COUNT] : ", crab_count)

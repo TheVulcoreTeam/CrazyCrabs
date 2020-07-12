@@ -6,7 +6,7 @@ func _ready():
 
 
 func _on_Start_pressed():
-	get_tree().change_scene("res://Game/Stage/Stage.tscn")
+	get_tree().change_scene("res://Game/Stage/" + Main.STAGE_VERSION + ".tscn")
 
 
 

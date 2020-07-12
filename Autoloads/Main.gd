@@ -4,6 +4,9 @@ const DEBUG_ACTORS := false
 
 const BGM := true
 
+# Puede ser "Stage" o "StageV2"
+const STAGE_VERSION = "StageV2"
+
 var store_score := 0
 var store_crab_cooking_amount := 0
 var store_time := 25

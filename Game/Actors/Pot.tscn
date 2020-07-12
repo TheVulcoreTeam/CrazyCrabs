@@ -58,6 +58,7 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Cover" type="Sprite" parent="."]
@@ -80,7 +81,7 @@ shape = SubResource( 4 )
 shape = SubResource( 5 )
 
 [node name="CookingTime" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 [connection signal="pressed" from="TouchArea" to="." method="_on_TouchArea_pressed"]
 [connection signal="body_entered" from="CaptureArea" to="." method="_on_CaptureArea_body_entered"]
