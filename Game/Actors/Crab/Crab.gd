@@ -7,7 +7,6 @@ func capture():
 	$Anim.play("Captured")
 	
 
-
 func _on_ExitTime_timeout():
 	if pot and pot.cover_off:
 		is_capture = false
@@ -28,3 +27,7 @@ func _on_ExitTime_timeout():
 		tween.start()
 		$Anim.play("Escape")
 		Main.store_crab_cooking_amount -= 1
+		
+func _on_VisibilityNotifier2D_screen_exited():
+	Events.emit_signal("out_screen_crab")
+	queue_free()
