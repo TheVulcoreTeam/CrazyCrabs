@@ -7,6 +7,8 @@ export var max_crab_count := 20
 export var crab_count := 2
 
 export var explosive_probability := 0.1
+# Permite spawnear
+var spawn_delay := true
 
 func _ready():
 	randomize()
@@ -19,6 +21,9 @@ func _ready():
 
 
 func spawn_crab():
+	if not spawn_delay:
+		return
+	
 	var crab = null
 	if randf() < explosive_probability:
 		crab = tnt_source.instance()
@@ -34,7 +39,8 @@ func spawn_crab():
 	crab.angle = crab.position.angle_to_point(dir_point) + (PI/2.0)
 	crab.angle_vector = Vector2(0,1).rotated(crab.angle)
 	crab.get_node("Sprite").rotation = crab.angle - (PI/2.0)
-
+	
+	spawn_delay = false
 
 func _on_update_score(score):
 	$Score.text = "Score: " + str(score)
@@ -60,4 +66,7 @@ func _on_DifficultTimer_timeout():
 	crab_count += 1
 	if crab_count > max_crab_count:
 		crab_count = max_crab_count
-	print_debug("[CRAB COUNT] : ", crab_count)
+
+
+func _on_SpawnDelay_timeout():
+	spawn_delay = true
