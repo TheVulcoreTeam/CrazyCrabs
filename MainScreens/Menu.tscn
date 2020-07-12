@@ -1,6 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MainScreens/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Game/Actors/Pot/olla_2.png" type="Texture" id=2]
+[ext_resource path="res://Game/Actors/Pot/olla_4.png" type="Texture" id=3]
+[ext_resource path="res://Game/Actors/Pot/olla_3.png" type="Texture" id=4]
+[ext_resource path="res://Game/Actors/Pot/olla_1.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_3.png" type="Texture" id=19]
 [ext_resource path="res://Game/Actors/Crab/cangrejo_4.png" type="Texture" id=20]
@@ -32,15 +36,52 @@ font_data = ExtResource( 14 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 8.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 22
 font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Menu"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("crabmenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 67.756 ), Vector2( 350, 100 ), Vector2( 300, 67.756 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("crabmenu2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 150.914 ), Vector2( 200, 150.914 ), Vector2( 300, 150.914 ) ]
+}
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,7 +89,6 @@ script = ExtResource( 1 )
 [node name="bg" type="AnimatedSprite" parent="."]
 position = Vector2( 192.282, 104.882 )
 frames = SubResource( 1 )
-frame = 4
 playing = true
 
 [node name="Start" type="Button" parent="."]
@@ -120,47 +160,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="crabmenu" type="AnimatedSprite" parent="."]
-position = Vector2( 339.107, 97.0681 )
+[node name="olla" type="AnimatedSprite" parent="."]
+position = Vector2( 191.947, 103.808 )
 frames = SubResource( 4 )
+playing = true
+
+[node name="crabmenu" type="AnimatedSprite" parent="."]
+position = Vector2( 326.75, 85.0065 )
+rotation = 0.712311
+frames = SubResource( 5 )
 frame = 3
 playing = true
 
 [node name="crabmenu5" type="AnimatedSprite" parent="."]
-position = Vector2( 255.012, 102.407 )
-frames = SubResource( 4 )
+position = Vector2( 276.258, 104.243 )
+frames = SubResource( 5 )
 frame = 3
 playing = true
 
 [node name="crabmenu2" type="AnimatedSprite" parent="."]
-position = Vector2( 291.151, 139.39 )
-frames = SubResource( 4 )
+position = Vector2( 246.5, 150.914 )
+frames = SubResource( 5 )
 frame = 3
 playing = true
 
 [node name="crabmenu3" type="AnimatedSprite" parent="."]
-position = Vector2( 210.218, 145.886 )
-frames = SubResource( 4 )
+position = Vector2( 143.561, 154.881 )
+frames = SubResource( 5 )
 frame = 2
 playing = true
 
 [node name="crabmenu4" type="AnimatedSprite" parent="."]
-position = Vector2( 159.682, 108.343 )
-frames = SubResource( 4 )
-frame = 1
+position = Vector2( 123.301, 94.0634 )
+frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="logotemp" type="Label" parent="."]
 margin_left = 78.0
-margin_top = 34.0
+margin_top = 16.6018
 margin_right = 320.0
-margin_bottom = 56.0
-custom_fonts/font = SubResource( 5 )
+margin_bottom = 38.6018
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
 text = "Crazy Crabs"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MenuAnim" type="AnimationPlayer" parent="."]
+anims/Menu = SubResource( 7 )
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Scores" to="." method="_on_Scores_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

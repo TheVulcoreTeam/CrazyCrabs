@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://MainScreens/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=2]
@@ -56,10 +56,39 @@ font_data = ExtResource( 2 )
 size = 8
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "Menu"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("crab:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.00999999, -1.49012e-08, 2, 4.02 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 278.008, 57.4657 ), Vector2( 278.008, 57.4657 ), Vector2( 350, 57.466 ), Vector2( 278.008, 57.4657 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("crab2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 276.479, 138.882 ), Vector2( 350, 138.882 ), Vector2( 276.479, 138.882 ) ]
+}
+
 [node name="Credits" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="fondo" type="AnimatedSprite" parent="."]
 position = Vector2( 192.034, 104.066 )
 frames = SubResource( 1 )
 frame = 5
@@ -167,38 +196,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="crab1" type="AnimatedSprite" parent="."]
-position = Vector2( 361.722, 137.606 )
+[node name="crab" type="AnimatedSprite" parent="."]
+position = Vector2( 316.524, 57.4659 )
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="crab2" type="AnimatedSprite" parent="."]
-position = Vector2( 288.391, 55.106 )
+position = Vector2( 315.813, 138.882 )
 frames = SubResource( 5 )
-frame = 1
-playing = true
-
-[node name="crab5" type="AnimatedSprite" parent="."]
-position = Vector2( 326.907, 56.2137 )
-frames = SubResource( 5 )
-frame = 1
-playing = true
-
-[node name="crab3" type="AnimatedSprite" parent="."]
-position = Vector2( 363.967, 56.2531 )
-frames = SubResource( 5 )
-playing = true
-
-[node name="crab4" type="AnimatedSprite" parent="."]
-position = Vector2( 281.67, 137.466 )
-frames = SubResource( 5 )
-playing = true
-
-[node name="crab6" type="AnimatedSprite" parent="."]
-position = Vector2( 324.64, 137.907 )
-frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="logo" type="Sprite" parent="."]
@@ -256,4 +263,7 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MenuAnim" type="AnimationPlayer" parent="."]
+anims/Menu = SubResource( 8 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
