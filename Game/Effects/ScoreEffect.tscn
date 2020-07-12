@@ -4,8 +4,6 @@
 [ext_resource path="res://Game/Effects/ScoreEffect.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
