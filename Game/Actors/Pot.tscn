@@ -94,7 +94,7 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CookedCrabs" type="Node2D" parent="."]

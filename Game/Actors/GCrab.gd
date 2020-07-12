@@ -99,7 +99,10 @@ func capture():
 	$ExitTime.start()
 	clickeable = false
 	
-	SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false, 2.4)
+	if not Main.easter_egg:
+		SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false, 2.4)
+	else:
+		SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false)
 	
 func _input(event):
 	if event.is_action_pressed("click_izquierdo") or event.is_action_pressed("click_derecho"):

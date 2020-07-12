@@ -66,7 +66,6 @@ func _process(delta):
 		
 		for cooked_crab in cooked_crabs_instances:
 			if is_instance_valid(cooked_crab):
-				cooked_crab = cooked_crab as GCrab
 				cooked_crab.get_node("ExitTime").start()
 
 func escape_all():
