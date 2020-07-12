@@ -96,10 +96,12 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Cover" type="Sprite" parent="."]
-position = Vector2( 0, -3 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -70 )
 texture = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="Cover"]
@@ -117,6 +119,7 @@ shape = SubResource( 5 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
+disabled = true
 
 [node name="CookingTime" type="Timer" parent="."]
 wait_time = 3.0

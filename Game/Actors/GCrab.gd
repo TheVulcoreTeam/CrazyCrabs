@@ -102,6 +102,7 @@ func capture():
 	SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false, 2.4)
 	
 func _input(event):
-	mouse_position = event.position
+	if event.is_action_pressed("click_izquierdo") or event.is_action_pressed("click_derecho"):
+		mouse_position = event.position
 
 
