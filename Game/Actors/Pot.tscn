@@ -7,7 +7,7 @@
 [ext_resource path="res://Game/Actors/Pot/olla_3.png" type="Texture" id=5]
 [ext_resource path="res://Game/Actors/Pot/olla_1.png" type="Texture" id=6]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
@@ -15,8 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=1]
-resource_name = "CoverOn"
+[sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -43,13 +42,13 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 17.0294
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 34.1321
 
 [node name="Pot" type="KinematicBody2D" groups=[
@@ -58,8 +57,12 @@ radius = 34.1321
 script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
+<<<<<<< HEAD
+frames = SubResource( 1 )
+=======
 frames = SubResource( 5 )
-frame = 3
+>>>>>>> a71b0664f001a2e708c659d10609f468d0a29214
+frame = 2
 playing = true
 
 [node name="Cover" type="Sprite" parent="."]
@@ -67,19 +70,19 @@ position = Vector2( 0, -3 )
 texture = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="Cover"]
-anims/CoverOn = SubResource( 1 )
+anims/CoverOn = SubResource( 2 )
 
 [node name="TouchArea" type="TouchScreenButton" parent="."]
 position = Vector2( -32, -35 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CaptureArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="CaptureArea"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CookingTime" type="Timer" parent="."]
 wait_time = 3.0
