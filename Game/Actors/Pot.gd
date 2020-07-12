@@ -14,7 +14,7 @@ var last_crab_amount = 0
 func _ready():
 	cook_bar_progress(0)
 	$Cover.hide()
-	$Cover/Anim.play("CoverOn")
+#	$Cover/Anim.play("CoverOn")
 	$Collision.disabled = true
 	$CookBar.hide()
 	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
