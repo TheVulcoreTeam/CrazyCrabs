@@ -19,17 +19,24 @@ func _process(delta):
 		escape = false
 
 func _on_ExitTime_timeout():
-	if pot and pot.cover_off:
-		is_capture = false
-		$Collision.disabled = false
-		clickeable = true
-		escape = true
+	if pot and pot.cover_off and is_capture:
+		exit_from_pot()
 		
-		dest = direction + Vector2(384/2, 208/2)
+func capture_time_exceeded():
+	if pot and pot.cover_off and is_capture:
+		exit_from_pot()
+		
+func exit_from_pot():
+	is_capture = false
+	$Collision.disabled = false
+	clickeable = true
+	escape = true
+	
+	dest = direction + Vector2(384/2, 208/2)
 
-		$Anim.play("Escape")
-		Main.store_crab_cooking_amount -= 1
-		
+	$Anim.play("Escape")
+	Main.store_crab_cooking_amount -= 1
+	
 func _on_VisibilityNotifier2D_screen_exited():
 	Events.emit_signal("out_screen_crab")
 	queue_free()
