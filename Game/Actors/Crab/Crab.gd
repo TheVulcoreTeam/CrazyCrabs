@@ -26,17 +26,7 @@ func _on_ExitTime_timeout():
 		escape = true
 		
 		dest = direction + Vector2(384/2, 208/2)
-#		var tween = Tween.new()
-#		tween.interpolate_property(
-#			self,
-#			"position",
-#			Vector2(384/2, 208/2),
-#			Vector2(384/2, 208/2) + direction,
-#			0.5,
-#			Tween.TRANS_LINEAR,
-#			Tween.EASE_IN_OUT
-#		)
-#		tween.start()
+
 		$Anim.play("Escape")
 		Main.store_crab_cooking_amount -= 1
 		
