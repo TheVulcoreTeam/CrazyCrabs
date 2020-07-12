@@ -1,9 +1,12 @@
 extends Node2D
 
 var crab_source = preload("res://Game/Actors/Crab/Crab.tscn")
+var tnt_source = preload("res://Game/Actors/TNTCrab/TNTCrab.tscn")
 
 export var max_crab_count := 20
 export var crab_count := 2
+
+export var explosive_probability := 0.1
 
 func _ready():
 	randomize()
@@ -16,7 +19,11 @@ func _ready():
 
 
 func spawn_crab():
-	var crab = crab_source.instance()
+	var crab = null
+	if randf() < explosive_probability:
+		crab = tnt_source.instance()
+	else:	
+		crab = crab_source.instance()
 	crab.global_position = $SpawnPoints.get_node(str(int(rand_range(1, 16)))).global_position
 	$Crabs.add_child(crab)
 	
