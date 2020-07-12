@@ -27,6 +27,11 @@ func _ready():
 					file_name_to_load = (dir.get_current_dir() + "/" + file_name).replace("." + EXTENSION_ANDROID, "")
 					file_name_key = file_name.replace("." + EXTENSION + "." + EXTENSION_ANDROID, "")
 					sounds[file_name_key] = load(file_name_to_load)
+				if OS.get_name() == "HTML5":
+					file_name_to_load = (dir.get_current_dir() + "/" + file_name).replace("." + EXTENSION_ANDROID, "")
+					file_name_key = file_name.replace("." + EXTENSION + "." + EXTENSION_ANDROID, "")
+					sounds[file_name_key] = load(file_name_to_load)
+					print_debug(file_name_to_load)
 				elif file_name.get_extension() == EXTENSION:
 					file_name_to_load = (dir.get_current_dir() + file_name)
 					file_name_key = file_name.replace("." + EXTENSION, "")

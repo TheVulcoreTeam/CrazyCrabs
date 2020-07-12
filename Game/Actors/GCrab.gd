@@ -110,4 +110,3 @@ func _input(event):
 	if event.is_action_pressed("click_izquierdo") or event.is_action_pressed("click_derecho"):
 		mouse_position = event.position
 
-
