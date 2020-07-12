@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Actors/Pot.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "GCrab",
 "class": "TNTCrab",
 "language": "GDScript",
 "path": "res://Game/Actors/TNTCrab/TNTCrab.gd"
@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GMTK2020"
+config/name="Crazy Crabs"
 run/main_scene="res://MainScreens/Splash.tscn"
 config/icon="res://icon.png"
 
