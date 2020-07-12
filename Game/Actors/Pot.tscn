@@ -59,18 +59,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, true ]
-}
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 32.0
@@ -103,7 +91,6 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="CookedCrabs" type="Node2D" parent="."]
@@ -147,7 +134,8 @@ position = Vector2( -8.78371, 14.3156 )
 position = Vector2( 6.74136, 15.5029 )
 
 [node name="Cover" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -5 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -70 )
 frames = SubResource( 2 )
 animation = "idle"
 playing = true
