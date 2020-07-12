@@ -14,9 +14,10 @@ var last_crab_amount = 0
 func _ready():
 	cook_bar_progress(0)
 	$Cover.hide()
+	$Cover/Anim.play("CoverOn")
+	$Collision.disabled = true
 	$CookBar.hide()
 	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
-
 
 func _process(delta):
 	if last_crab_amount != Main.store_crab_cooking_amount:
@@ -55,7 +56,6 @@ func _process(delta):
 		print("press")
 	elif Input.is_action_just_released("ui_accept"):
 		cover_off = true
-		$Cover.hide()
 		$Cover/Anim.play("CoverOn")
 		$Collision.disabled = true
 		$CookingTime.stop()
