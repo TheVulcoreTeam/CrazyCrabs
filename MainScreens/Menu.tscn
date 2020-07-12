@@ -89,6 +89,7 @@ script = ExtResource( 1 )
 [node name="bg" type="AnimatedSprite" parent="."]
 position = Vector2( 192.282, 104.882 )
 frames = SubResource( 1 )
+frame = 4
 playing = true
 
 [node name="Start" type="Button" parent="."]
@@ -96,6 +97,7 @@ margin_left = 4.3459
 margin_top = 73.5948
 margin_right = 96.3459
 margin_bottom = 95.595
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
@@ -111,6 +113,7 @@ margin_left = 1.78466
 margin_top = 92.922
 margin_right = 109.785
 margin_bottom = 114.922
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
@@ -126,6 +129,7 @@ margin_left = 0.908825
 margin_top = 112.219
 margin_right = 124.909
 margin_bottom = 134.219
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
@@ -141,6 +145,7 @@ margin_left = -2.45603
 margin_top = 130.013
 margin_right = 89.544
 margin_bottom = 152.013
+focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
 custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
@@ -167,7 +172,7 @@ __meta__ = {
 [node name="olla" type="AnimatedSprite" parent="."]
 position = Vector2( 191.947, 103.808 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="crabmenu" type="AnimatedSprite" parent="."]

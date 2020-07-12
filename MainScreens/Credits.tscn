@@ -203,6 +203,7 @@ margin_left = 6.0
 margin_top = 184.806
 margin_right = 74.0
 margin_bottom = 204.806
+focus_mode = 0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
