@@ -29,3 +29,8 @@ func _on_close_pressed():
 
 func _on_Help_pressed():
 	$Tutorial.visible = true
+
+
+func _on_TouchScreenButton_pressed():
+	Main.easter_egg = true
+	SoundManager.play_sound("AARGH_1")

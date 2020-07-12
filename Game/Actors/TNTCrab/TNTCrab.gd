@@ -6,7 +6,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	Events.emit_signal("out_screen_crab")
 	queue_free()
 	
-func _process(delta):
+func _physics_process(delta):
 	if external_collision != null and external_collision.collider.name == 'Pot':
 		#
 		print('yahoo')

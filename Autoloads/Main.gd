@@ -4,6 +4,8 @@ const DEBUG_ACTORS := false
 
 const BGM := true
 
+var easter_egg := false
+
 # Puede ser "Stage" o "StageV2"
 const STAGE_VERSION = "StageV2"
 
