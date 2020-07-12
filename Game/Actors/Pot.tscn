@@ -91,7 +91,6 @@ script = ExtResource( 3 )
 
 [node name="Pot" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CookedCrabs" type="Node2D" parent="."]
@@ -135,7 +134,8 @@ position = Vector2( -8.78371, 14.3156 )
 position = Vector2( 6.74136, 15.5029 )
 
 [node name="Cover" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -5 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -70 )
 frames = SubResource( 2 )
 animation = "idle"
 playing = true
@@ -144,7 +144,6 @@ playing = true
 anims/CoverOn = SubResource( 3 )
 
 [node name="TouchArea" type="TouchScreenButton" parent="."]
-visible = false
 position = Vector2( -32, -35 )
 shape = SubResource( 4 )
 
