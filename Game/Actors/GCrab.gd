@@ -84,7 +84,6 @@ func _physics_process(delta):
 			EffectManager.crash_effect(external_collision.position)
 			if external_collision.collider.name == 'Pot':
 				EffectManager.screen_shake(2, 1)
-			
 
 func new_random_angle():
 	angle = randf() * 2 * PI

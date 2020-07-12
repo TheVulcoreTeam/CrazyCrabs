@@ -136,7 +136,11 @@ func captured_clean():
 	cooked_crabs_positions_ids = []
 
 func _on_CaptureArea_body_entered(body):
-	if cover_off and body is GCrab:
+	if body is TNTCrab:
+		body = body as TNTCrab
+		body.queue_free()
+		escape_all()
+	elif cover_off and body is GCrab:
 		body = body as GCrab
 		body.capture()
 		cooked_crabs_instances.append(body)
