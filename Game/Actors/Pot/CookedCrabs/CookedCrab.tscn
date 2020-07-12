@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Actors/Pot/CookedCrabs/crab_cocido.png" type="Texture" id=1]
+[ext_resource path="res://Game/Actors/Pot/CookedCrabs/crab_frio.png" type="Texture" id=2]
+[ext_resource path="res://Game/Actors/Pot/CookedCrabs/crab_tibio.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "cooked",
+"speed": 5.0
+} ]
+
+[node name="CookedCrab" type="AnimatedSprite"]
+frames = SubResource( 8 )
+animation = "cooked"

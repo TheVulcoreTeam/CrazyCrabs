@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game/Actors/Pot/olla_2.png" type="Texture" id=1]
 [ext_resource path="res://Game/Actors/Pot/tapa.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Game/Actors/Pot/olla_3.png" type="Texture" id=5]
 [ext_resource path="res://Game/Actors/Pot/olla_1.png" type="Texture" id=6]
 [ext_resource path="res://Game/Actors/Pot/CookBar/CookBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Actors/Pot/Tapa/tapa_2.png" type="Texture" id=8]
+[ext_resource path="res://Game/Actors/Pot/Tapa/tapa_3.png" type="Texture" id=9]
+[ext_resource path="res://Game/Actors/Pot/Tapa/tapa_4.png" type="Texture" id=10]
+[ext_resource path="res://Game/Actors/Pot/Tapa/tapa_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,24 +20,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "Cook"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.5, 0.0, -1.5, 0.0 ]
-}
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "cook",
+"speed": 8.0
+} ]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -3 ), Vector2( 0, -70 ) ]
+"values": [ Vector2( 0, -5 ), Vector2( 0, -70 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -60,13 +60,13 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 radius = 17.0294
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 34.1321
 
 [node name="Pot" type="KinematicBody2D" groups=[
@@ -79,25 +79,66 @@ frames = SubResource( 1 )
 frame = 3
 playing = true
 
-[node name="Cover" type="Sprite" parent="."]
-position = Vector2( 0, -3 )
-texture = ExtResource( 2 )
+[node name="CookedCrabs" type="Node2D" parent="."]
+
+[node name="CookedCrabsPositions" type="Node2D" parent="."]
+
+[node name="0" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -14.5828, -16.0718 )
+
+[node name="1" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -3.21656, -24.5385 )
+
+[node name="2" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 11.0492, -20.0152 )
+
+[node name="3" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -0.762623, -11.7377 )
+
+[node name="4" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 19.168, -10.0407 )
+
+[node name="5" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -20.9619, -7.02517 )
+
+[node name="6" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 3.46769, -3.41141 )
+
+[node name="7" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 20.4072, 0.306133 )
+
+[node name="8" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -12.7921, 1.87181 )
+
+[node name="9" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 7.43164, 5.17353 )
+
+[node name="10" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( -8.78371, 14.3156 )
+
+[node name="11" type="Position2D" parent="CookedCrabsPositions"]
+position = Vector2( 6.74136, 15.5029 )
+
+[node name="Cover" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -5 )
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
 
 [node name="Anim" type="AnimationPlayer" parent="Cover"]
-anims/Cook = SubResource( 2 )
-anims/CoverOn = SubResource( 3 )
+anims/CoverOn = SubResource( 4 )
 
 [node name="TouchArea" type="TouchScreenButton" parent="."]
 position = Vector2( -32, -35 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CaptureArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="CaptureArea"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CookingTime" type="Timer" parent="."]
 wait_time = 3.0
