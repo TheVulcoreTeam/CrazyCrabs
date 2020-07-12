@@ -4,10 +4,19 @@ class_name Pot
 
 var cover_off := false
 
+var last_crab_amount = 0
+
 func _ready():
 	cook_bar_progress(0)
+	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
 
 func _process(delta):
+	if last_crab_amount != Main.store_crab_cooking_amount:
+		$CrabCounter/Label.text = str(Main.store_crab_cooking_amount)
+		$CrabCounter/AnimationPlayer.stop()
+		$CrabCounter/AnimationPlayer.play("counter_change")
+	last_crab_amount = Main.store_crab_cooking_amount
+	
 	if not cover_off and Main.store_crab_cooking_amount > 0:
 		cook_bar_progress(($CookingTime.wait_time - $CookingTime.time_left)/ $CookingTime.wait_time*100)
 
@@ -48,3 +57,4 @@ func _on_CookingTime_timeout():
 	if score_made > 0:
 		EffectManager.score_effect(score_made)
 	cook_bar_progress(0)
+	

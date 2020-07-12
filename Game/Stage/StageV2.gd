@@ -44,8 +44,7 @@ func _on_Countdown_timeout():
 
 func _on_SpawnerTimer_timeout():
 	if ($Crabs.get_child_count() < max_crab_count):
-		for i in range(3):
-			spawn_crab()
+		spawn_crab()
 
 func _on_out_screen_crab():
 	spawn_crab()
