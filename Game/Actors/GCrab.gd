@@ -10,6 +10,9 @@ var is_capture := false
 var capture_position = Vector2.ZERO
 var capture_t = 0
 
+var capture_time = 0
+var capture_time_limit = 180
+
 var angle := 0.0 # radianes
 var angle_vector := Vector2(0,0)
 
@@ -40,6 +43,15 @@ func _ready():
 
 func _process(delta):
 	if Main.DEBUG_ACTORS: update()
+	if is_capture: 
+		if pot and pot.cover_off:
+			capture_time += 1
+			if capture_time > capture_time_limit:
+				capture_time_exceeded()
+	if !is_capture and capture_time > 0:
+		capture_time = 0
+		
+		
 
 func _draw():
 	if not Main.DEBUG_ACTORS:
@@ -94,18 +106,23 @@ func new_random_angle():
 	SoundManager.play_sound("HIT_CRAB_" + str(int(round(rand_range(1,3)))))
 
 func capture():
-	is_capture = true
-	capture_position = self.position
-	$Collision.disabled = true
-	Main.store_crab_cooking_amount += 1
-	$ExitTime.start()
-	clickeable = false
+	if !pot.is_exploding:
+		is_capture = true
+		capture_position = self.position
+		$Collision.disabled = true
+		Main.store_crab_cooking_amount += 1
+		#$ExitTime.start()
+		clickeable = false
+		
+		if not Main.easter_egg:
+			SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false, 2.4)
+		else:
+			SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false)
 	
-	if not Main.easter_egg:
-		SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false, 2.4)
-	else:
-		SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false)
-	
+func capture_time_exceeded():
+	pass
+
+
 func _input(event):
 	if event.is_action_pressed("click_izquierdo") or event.is_action_pressed("click_derecho"):
 		mouse_position = event.position
