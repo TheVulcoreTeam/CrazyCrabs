@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="GMTK2020"
 run/main_scene="res://MainScreens/Splash.tscn"
-config/icon="res://icon.png"
+config/icon="res://Game/Actors/Crab/cangrejo_3.png"
 
 [autoload]
 
