@@ -12,6 +12,9 @@ var cooked_crabs_positions_ids := []
 var cooked_crabs_instances := []
 
 var last_crab_amount = 0
+var last_cookbar_state = 0
+
+var cook_bar_position = Vector2(-9, 44)
 
 func _ready():
 	cook_bar_progress(0)
@@ -65,9 +68,24 @@ func _process(delta):
 		cook_bar_progress(0)
 		$CookBar.hide()
 		print("rel")
+		
+	if last_cookbar_state > 50:
+		cook_bar_shake()
+	
+	last_cookbar_state = $CookBar/ProgressBar.value
 
 func cook_bar_progress(_value):
 	$CookBar/ProgressBar.value = _value
+
+
+func cook_bar_shake():
+	if $CookBar/ProgressBar.value < 50:
+		$CookBar.rect_position = cook_bar_position
+	else:
+		var x = (randf()*2)-1
+		var y = (randf()*2)-1
+		$CookBar.rect_position = cook_bar_position + Vector2(x, y)
+
 
 func cover_idle():
 	$Cover.play("idle")

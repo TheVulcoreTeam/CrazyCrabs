@@ -164,10 +164,10 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CookBar" parent="." instance=ExtResource( 7 )]
-margin_left = -9.52833
-margin_top = 43.9307
-margin_right = 30.4717
-margin_bottom = 53.9307
+margin_left = -9.0
+margin_top = 44.0
+margin_right = 31.0
+margin_bottom = 54.0
 
 [node name="CrabCounter" type="Node2D" parent="."]
 

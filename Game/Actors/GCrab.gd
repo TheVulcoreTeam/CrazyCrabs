@@ -13,6 +13,8 @@ var capture_t = 0
 var angle := 0.0 # radianes
 var angle_vector := Vector2(0,0)
 
+var external_collision = null
+
 ###DEBUG ONLY
 export var debug_radius := 10
 export var debug_color_1 := Color(0.3,0.1,0.6) 
@@ -71,17 +73,18 @@ func _physics_process(delta):
 		
 		self.position = capture_position.linear_interpolate(Vector2(194, 104), capture_t)
 	else:
-		var collision := move_and_collide(angle_vector *velocity)
+		external_collision = move_and_collide(angle_vector *velocity)
 		
 		$Sprite/Arrow.visible = false
 		$Sprite.scale = Vector2(1, 1)
 		
-		if collision != null:
+		if external_collision != null:
 			# Aqui la logica para cambiar el angulo, por ahora es random
 			new_random_angle()
-			EffectManager.crash_effect(collision.position)
-			if collision.collider.name == 'Pot':
+			EffectManager.crash_effect(external_collision.position)
+			if external_collision.collider.name == 'Pot':
 				EffectManager.screen_shake(2, 1)
+			
 
 func new_random_angle():
 	angle = randf() * 2 * PI

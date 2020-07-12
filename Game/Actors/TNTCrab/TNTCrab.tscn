@@ -22,6 +22,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Arrow" type="Sprite" parent="Sprite"]
