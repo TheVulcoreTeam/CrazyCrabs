@@ -1,6 +1,7 @@
 extends Node
 
 const DEBUG_ACTORS := false
+const VERSION := "v1.1.0"
 
 const BGM := true
 

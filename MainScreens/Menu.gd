@@ -3,6 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MenuAnim.play("Menu")
+	$Version.text = Main.VERSION
 
 
 func _on_Start_pressed():
