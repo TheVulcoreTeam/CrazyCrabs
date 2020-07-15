@@ -11,7 +11,7 @@ const STAGE_VERSION = "StageV2"
 
 var store_score := 0
 var store_crab_cooking_amount := 0
-var store_time := 25
+var store_time := 30
 
 enum GameResult {
 	FINISH,

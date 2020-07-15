@@ -84,6 +84,7 @@ func _physics_process(delta):
 			# Aqui la logica para cambiar el angulo, por ahora es random
 			new_random_angle()
 			EffectManager.crash_effect(external_collision.position)
+			
 			if external_collision.collider.name == 'Pot':
 				EffectManager.screen_shake(2, 1)
 
