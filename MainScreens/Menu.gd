@@ -34,4 +34,4 @@ func _on_Help_pressed():
 
 func _on_TouchScreenButton_pressed():
 	Main.easter_egg = true
-	SoundManager.play_sound("AARGH_1")
+	SoundManager.play_sound("AARGH_" + str(int(round(rand_range(1, 5)))), 1, false)
