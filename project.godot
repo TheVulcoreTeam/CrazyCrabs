@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Actors/Pot.gd"
 }, {
-"base": "GCrab",
+"base": "KinematicBody2D",
 "class": "TNTCrab",
 "language": "GDScript",
 "path": "res://Game/Actors/TNTCrab/TNTCrab.gd"
@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Crazy Crabs"
 run/main_scene="res://MainScreens/Splash.tscn"
-config/icon="res://icon.png"
+config/icon="res://Game/Actors/Crab/cangrejo_1.png"
 
 [autoload]
 
