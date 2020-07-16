@@ -36,11 +36,15 @@ size = 13
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 11
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 8
 outline_color = Color( 0.368627, 0.27451, 0.27451, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
@@ -48,7 +52,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
@@ -56,12 +60,8 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 15.0
-
-[sub_resource type="DynamicFont" id=7]
-size = 11
-font_data = ExtResource( 14 )
 
 [sub_resource type="Animation" id=8]
 length = 4.0
@@ -123,12 +123,15 @@ position = Vector2( 192.282, 104.882 )
 frames = SubResource( 1 )
 frame = 1
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Start" type="Button" parent="."]
 margin_left = 4.3459
-margin_top = 73.5948
+margin_top = 79.4218
 margin_right = 96.3459
-margin_bottom = 95.595
+margin_bottom = 101.422
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
@@ -142,9 +145,9 @@ __meta__ = {
 
 [node name="Scores" type="Button" parent="."]
 margin_left = 1.78466
-margin_top = 92.922
+margin_top = 98.749
 margin_right = 109.785
-margin_bottom = 114.922
+margin_bottom = 120.749
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
@@ -158,9 +161,9 @@ __meta__ = {
 
 [node name="Credits" type="Button" parent="."]
 margin_left = 0.908825
-margin_top = 112.219
+margin_top = 118.046
 margin_right = 124.909
-margin_bottom = 134.219
+margin_bottom = 140.046
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
@@ -174,9 +177,9 @@ __meta__ = {
 
 [node name="Exit" type="Button" parent="."]
 margin_left = -2.45603
-margin_top = 130.013
+margin_top = 137.959
 margin_right = 89.544
-margin_bottom = 152.013
+margin_bottom = 159.959
 focus_mode = 0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
@@ -188,12 +191,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Help" type="Button" parent="."]
+margin_left = 9.93291
+margin_top = 60.7315
+margin_right = 109.933
+margin_bottom = 77.7315
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
+custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
+custom_colors/font_color_pressed = Color( 0.870588, 0.156863, 0.443137, 1 )
+text = "Tutorial"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="vulcore" type="Label" parent="."]
 margin_left = 178.0
 margin_top = 195.0
 margin_right = 378.0
 margin_bottom = 203.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.839216, 0.8, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "DEVELOPED BY VULCORE TEAM"
@@ -206,7 +225,7 @@ margin_left = 10.0
 margin_top = 195.0
 margin_right = 70.0
 margin_bottom = 203.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.839216, 0.8, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "v0.0.0"
@@ -216,60 +235,44 @@ __meta__ = {
 
 [node name="olla" type="AnimatedSprite" parent="."]
 position = Vector2( 191.947, 103.808 )
-frames = SubResource( 4 )
-frame = 1
+frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="crabmenu" type="AnimatedSprite" parent="."]
 position = Vector2( 326.75, 85.0065 )
 rotation = 0.712311
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 frame = 3
 playing = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="crabmenu"]
 position = Vector2( -14.5633, -14.1351 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="crabmenu5" type="AnimatedSprite" parent="."]
 position = Vector2( 276.258, 104.243 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 frame = 3
 playing = true
 
 [node name="crabmenu2" type="AnimatedSprite" parent="."]
 position = Vector2( 246.5, 150.914 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 frame = 3
 playing = true
 
 [node name="crabmenu3" type="AnimatedSprite" parent="."]
 position = Vector2( 143.561, 154.881 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 frame = 2
 playing = true
 
 [node name="crabmenu4" type="AnimatedSprite" parent="."]
 position = Vector2( 123.301, 94.0634 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 frame = 2
 playing = true
-
-[node name="Help" type="Button" parent="."]
-margin_left = 326.377
-margin_top = 6.69887
-margin_right = 382.377
-margin_bottom = 23.6989
-focus_mode = 0
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.333333, 0.133333, 0, 1 )
-custom_colors/font_color_hover = Color( 0.768627, 0.356863, 0.847059, 1 )
-custom_colors/font_color_pressed = Color( 0.870588, 0.156863, 0.443137, 1 )
-text = "Help"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MenuAnim" type="AnimationPlayer" parent="."]
 anims/Menu = SubResource( 8 )
@@ -278,7 +281,6 @@ anims/Menu = SubResource( 8 )
 position = Vector2( 191.169, 29.3854 )
 frames = SubResource( 9 )
 animation = "logo"
-frame = 1
 playing = true
 
 [node name="Tutorial" type="ColorRect" parent="."]
@@ -294,7 +296,7 @@ __meta__ = {
 position = Vector2( 140.338, 103.24 )
 frames = SubResource( 10 )
 animation = "Tutorial"
-frame = 1
+frame = 3
 playing = true
 
 [node name="info" type="Label" parent="Tutorial"]
@@ -337,6 +339,6 @@ __meta__ = {
 [connection signal="pressed" from="Scores" to="." method="_on_Scores_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="crabmenu/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="crabmenu/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="Tutorial/close" to="." method="_on_close_pressed"]

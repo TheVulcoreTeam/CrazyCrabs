@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game/Stage/StageV2.gd" type="Script" id=1]
 [ext_resource path="res://Game/Stage/Background/background_6.png" type="Texture" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Game/Stage/Background/background_4.png" type="Texture" id=7]
 [ext_resource path="res://Game/Stage/Background/background_2.png" type="Texture" id=8]
 [ext_resource path="res://Fonts/PressStart2P.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://MainScreens/Tutorial/tutorial_3.png" type="Texture" id=10]
+[ext_resource path="res://MainScreens/Tutorial/tutorial_4.png" type="Texture" id=11]
+[ext_resource path="res://MainScreens/Tutorial/tutorial_2.png" type="Texture" id=12]
+[ext_resource path="res://MainScreens/Tutorial/tutorial_1.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,6 +25,20 @@ animations = [ {
 [sub_resource type="DynamicFont" id=2]
 size = 8
 font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_size = 1
+outline_color = Color( 0.321569, 0.2, 0.219608, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Tutorial",
+"speed": 2.0
+} ]
 
 [node name="StageV2" type="Node2D"]
 script = ExtResource( 1 )
@@ -116,6 +134,21 @@ __meta__ = {
 [node name="Countdown" type="Timer" parent="Time"]
 autostart = true
 
+[node name="Tutorial" type="Button" parent="."]
+pause_mode = 2
+margin_left = 288.0
+margin_top = 182.0
+margin_right = 384.0
+margin_bottom = 208.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+shortcut_in_tooltip = false
+text = "Tutorial"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SpawnerTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
@@ -127,7 +160,29 @@ autostart = true
 [node name="SpawnDelay" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="TutorialImg" type="AnimatedSprite" parent="."]
+pause_mode = 2
+visible = false
+frames = SubResource( 4 )
+animation = "Tutorial"
+frame = 1
+playing = true
+offset = Vector2( 192, 104 )
+
+[node name="ExitTutorial" type="TextureButton" parent="TutorialImg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 17.0
+margin_right = 60.0
+margin_bottom = 17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Time/Countdown" to="." method="_on_Countdown_timeout"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="timeout" from="SpawnerTimer" to="." method="_on_SpawnerTimer_timeout"]
 [connection signal="timeout" from="DifficultTimer" to="." method="_on_DifficultTimer_timeout"]
 [connection signal="timeout" from="SpawnDelay" to="." method="_on_SpawnDelay_timeout"]
+[connection signal="pressed" from="TutorialImg/ExitTutorial" to="." method="_on_ExitTutorial_pressed"]

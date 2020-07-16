@@ -6,7 +6,7 @@ var tnt_source = preload("res://Game/Actors/TNTCrab/TNTCrab.tscn")
 export var max_crab_count := 20
 export var crab_count := 2
 
-export var explosive_probability := 0.3
+export var explosive_probability := 0.15
 # Permite spawnear
 var spawn_delay := true
 
@@ -70,3 +70,13 @@ func _on_DifficultTimer_timeout():
 
 func _on_SpawnDelay_timeout():
 	spawn_delay = true
+
+
+func _on_Tutorial_pressed():
+	get_tree().paused = true
+	$TutorialImg.visible = true
+
+
+func _on_ExitTutorial_pressed():
+	get_tree().paused = false
+	$TutorialImg.visible = false

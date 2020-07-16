@@ -4,16 +4,17 @@ extends Node2D
 func _ready():
 	$MenuAnim.play("Menu")
 	$Version.text = Main.VERSION
+	
+	if OS.get_name() == "HTML5":
+		$Exit.visible = false
 
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://Game/Stage/" + Main.STAGE_VERSION + ".tscn")
 
 
-
 func _on_Scores_pressed():
 	get_tree().change_scene("res://MainScreens/EndLevel.tscn")
-
 
 
 func _on_Exit_pressed():

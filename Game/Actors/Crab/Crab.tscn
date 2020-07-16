@@ -68,7 +68,7 @@ script = ExtResource( 2 )
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
 animation = "Move"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Collision" parent="." index="1"]
