@@ -123,7 +123,7 @@ margin_right = 373.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.321569, 0.2, 0.219608, 1 )
-text = "Time: 25"
+text = "Time: 40"
 align = 2
 valign = 1
 __meta__ = {
@@ -166,7 +166,7 @@ pause_mode = 2
 visible = false
 frames = SubResource( 4 )
 animation = "Tutorial"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 192, 104 )
 

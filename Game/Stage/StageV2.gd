@@ -53,7 +53,8 @@ func _on_Countdown_timeout():
 	if Main.store_time <= 0:
 		Main.game_result = Main.GameResult.FINISH
 		get_tree().change_scene("res://MainScreens/EndLevel.tscn")
-
+	
+	$Time/Countdown.wait_time -= Main.store_score * 0.0001
 
 func _on_SpawnerTimer_timeout():
 	if ($Crabs.get_child_count() < max_crab_count):
