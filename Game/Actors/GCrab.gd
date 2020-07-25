@@ -51,8 +51,6 @@ func _process(delta):
 	if !is_capture and capture_time > 0:
 		capture_time = 0
 		
-		
-
 func _draw():
 	if not Main.DEBUG_ACTORS:
 		return

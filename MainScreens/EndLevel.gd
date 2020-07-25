@@ -52,7 +52,7 @@ func _on_ranking_obtained(result, response_code, headers, body):
 
 
 func update_scores(dict):
-	if dict.has('scores'):
+	if dict != null and dict.has('scores'):
 		scoreboard.bbcode_text = '###  SCORE   NICKNAME\n'
 		for score in dict.scores:
 			scoreboard.bbcode_text += str(score.rank).pad_zeros(3)+'. '+str(score.score).pad_zeros(6)+' - '+score.nickname+'\n'

@@ -21,7 +21,6 @@ var cook_bar_position = Vector2(-9, 44)
 func _ready():
 	cook_bar_progress(0)
 	$Cover.hide()
-#	$Cover/Anim.play("CoverOn")
 	$Collision.disabled = true
 	$CookBar.hide()
 	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
@@ -71,7 +70,7 @@ func _process(delta):
 				cover_cook()
 			else:
 				cover_idle()
-			print("press")
+			
 		elif Input.is_action_just_released("ui_accept"):
 			cover_off = true
 			$Cover/Anim.play("CoverOn")
@@ -81,11 +80,6 @@ func _process(delta):
 			cook_bar_progress(0)
 			$CookBar.hide()
 			
-	#		for crab in cooked_crabs_instances:
-	#			if is_instance_valid(crab):
-	##				cooked_crab.get_node("ExitTime").start()
-	#				crab.is_capture = true
-
 	if last_cookbar_state > 50:
 		cook_bar_shake()
 	
