@@ -50,6 +50,7 @@ MusicManager="*res://Autoloads/MusicManager.tscn"
 SoundManager="*res://Autoloads/SoundManager.tscn"
 MapManager="*res://Autoloads/MapManager.gd"
 EffectManager="*res://Autoloads/EffectManager.gd"
+Secret="*res://Autoloads/Secret.gd"
 
 [display]
 

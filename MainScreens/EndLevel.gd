@@ -24,7 +24,8 @@ func _ready():
 	# En caso de que no tenga el Singleton Secret, no es visible el boton save
 	if not Engine.has_singleton("Secret"):
 		$Save.hide()
-	
+
+
 func _on_Save_pressed():
 	save.disabled = true
 	text_field.readonly = true
@@ -32,13 +33,14 @@ func _on_Save_pressed():
 	var body = {
 		'nickname': text_field.text,
 		'score': Main.store_score,
-		'vulcore_key': 'foo' # Secret.VULCORE_KEY
+		'vulcore_key': Secret.VULCORE_KEY
 	}
 	var headers = ["Content-Type: application/json"]
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))
 	
 	Main.reset_store()
 	Main.game_result = Main.GameResult.NONE
+
 
 func _http_request_completed(result, response_code, headers, body):
 	save.hide()
