@@ -9,7 +9,6 @@ onready var save = $Save
 
 var headers = ["Content-Type: application/json"]
 
-
 func _ready():
 	http_request.connect('request_completed', self, '_http_request_completed')
 	http_results.connect('request_completed', self, '_on_ranking_obtained')
@@ -22,18 +21,21 @@ func _ready():
 	else:
 		$ScoreTitle.text = "Score: " + str(Main.store_score)
 	
+	# En caso de que no tenga el Singleton Secret, no es visible el boton save
+	if not Engine.has_singleton("Secret"):
+		$Save.hide()
+	
 func _on_Save_pressed():
 	save.disabled = true
 	text_field.readonly = true
+	
 	var body = {
 		'nickname': text_field.text,
 		'score': Main.store_score,
-		'vulcore_key': 'a2ed12be302bcacef65a424113c070bf'
+		'vulcore_key': 'foo' # Secret.VULCORE_KEY
 	}
 	var headers = ["Content-Type: application/json"]
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))
-	
-	
 	
 	Main.reset_store()
 	Main.game_result = Main.GameResult.NONE
