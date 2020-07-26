@@ -107,7 +107,8 @@ func capture():
 	if !pot.is_exploding:
 		is_capture = true
 		capture_position = self.position
-		$Collision.disabled = true
+		$Collision.set_deferred("disabled", true)
+
 		Main.store_crab_cooking_amount += 1
 		#$ExitTime.start()
 		clickeable = false

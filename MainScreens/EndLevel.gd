@@ -20,20 +20,15 @@ func _ready():
 		$ScoreTitle.text = "Score"
 	else:
 		$ScoreTitle.text = "Score: " + str(Main.store_score)
-	
-	# En caso de que no tenga el Singleton Secret, no es visible el boton save
-	if not Engine.has_singleton("Secret"):
-		$Save.hide()
-
 
 func _on_Save_pressed():
-	save.disabled = true
+	$Save.disabled = true
 	text_field.readonly = true
 	
 	var body = {
 		'nickname': text_field.text,
 		'score': Main.store_score,
-		'vulcore_key': Secret.VULCORE_KEY
+		'vulcore_key': Secret.VULCORE_KEY # Cambiar este string por cualquier cosa si no se tiene la key
 	}
 	var headers = ["Content-Type: application/json"]
 	http_request.request('https://us-central1-vulcore-crab.cloudfunctions.net/VULCOREAPI/send_score', headers, false, HTTPClient.METHOD_POST, JSON.print(body))

@@ -1,10 +1,11 @@
 extends Node
 
 const DEBUG_ACTORS := false
-const VERSION := "v1.1.1"
+const VERSION := "v1.1.3"
 
 const BGM := true
 
+# TOP SECRET
 var easter_egg := false
 
 # Puede ser "Stage" o "StageV2"

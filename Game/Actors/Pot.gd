@@ -21,7 +21,7 @@ var cook_bar_position = Vector2(-9, 44)
 func _ready():
 	cook_bar_progress(0)
 	$Cover.hide()
-	$Collision.disabled = true
+	$Collision.set_deferred("disabled", true)
 	$CookBar.hide()
 	$CrabCounter/Label.rect_pivot_offset = $CrabCounter/Label.rect_size/2
 	
@@ -62,7 +62,7 @@ func _process(delta):
 			cover_off = false
 			$Cover.show()
 			$Cover/Anim.play_backwards("CoverOn")
-			$Collision.disabled = false
+			$Collision.set_deferred("disabled", false)
 			$CookingTime.start()
 			SoundManager.play_sound("POT_ON")
 			if Main.store_crab_cooking_amount > 0:
@@ -74,7 +74,7 @@ func _process(delta):
 		elif Input.is_action_just_released("ui_accept"):
 			cover_off = true
 			$Cover/Anim.play("CoverOn")
-			$Collision.disabled = true
+			$Collision.set_deferred("disabled", true)
 			$CookingTime.stop()
 			SoundManager.play_sound("POT_OFF")
 			cook_bar_progress(0)
@@ -89,7 +89,7 @@ func _on_CaptureArea_body_entered(body):
 	if body is TNTCrab:
 		is_exploding = true
 		EffectManager.explosion_effect(body.position)
-		body.free()
+		body.queue_free()
 		EffectManager.screen_shake(60, 5)
 		for crab in EffectManager.find_node_by_name(get_tree().get_root(), "Crabs").get_children():
 			if crab is Crab and crab.is_capture:

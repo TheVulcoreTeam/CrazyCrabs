@@ -17,6 +17,3 @@ func _process(delta):
 		cook_state += 1
 		frame = cook_state
 		cook_timer_delay = 0.0
-	
-		
-	

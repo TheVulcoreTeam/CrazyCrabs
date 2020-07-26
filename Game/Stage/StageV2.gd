@@ -29,8 +29,9 @@ func spawn_crab():
 		crab = tnt_source.instance()
 	else:	
 		crab = crab_source.instance()
+	
+	$Crabs.call_deferred("add_child", crab)
 	crab.global_position = $SpawnPoints.get_node(str(int(rand_range(1, 16)))).global_position
-	$Crabs.add_child(crab)
 	
 	var dir_point := Vector2()
 	dir_point.x = (MapManager.negative_spawn_rect_bounds.position.x) + randi() % (MapManager.negative_spawn_rect_bounds.size.x as int)

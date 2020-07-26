@@ -3,8 +3,9 @@ extends KinematicBody2D
 class_name TNTCrab
 
 func _on_VisibilityNotifier2D_screen_exited():
-	Events.emit_signal("out_screen_crab")
-	queue_free()
+	if is_instance_valid(self):
+		Events.emit_signal("out_screen_crab")
+		queue_free()
 
 var mouse_position = Vector2(0, 0)
 var is_capture := false

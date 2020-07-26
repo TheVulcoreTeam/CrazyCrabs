@@ -2,7 +2,7 @@ extends GCrab
 
 class_name Crab
 
-var direction = Vector2(1, 0).rotated(deg2rad(rand_range(0, 360))) * 100
+var direction = Vector2(1, 0).rotated(deg2rad(rand_range(0, 360))) * 130
 var dest = Vector2.ZERO
 var c_t = 0
 var escape := false
@@ -28,7 +28,7 @@ func capture_time_exceeded():
 		
 func exit_from_pot():
 	is_capture = false
-	$Collision.disabled = false
+	$Collision.set_deferred("disabled", false)
 	clickeable = true
 	escape = true
 	
